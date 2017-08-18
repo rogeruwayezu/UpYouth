@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  budget: 1
+  use_id: 1
+  deadline: 1
+  category_id: 1
+  skills: MyText
+
+two:
+  title: MyString
+  description: MyText
+  budget: 1
+  use_id: 1
+  deadline: 1
+  category_id: 1
+  skills: MyText
