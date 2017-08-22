@@ -10,7 +10,8 @@ class ApplicationController < ActionController::Base
   def authenticate_user!
     flash.now[:danger] = "Access Accepted"
     redirect_to "/posts" unless current_user
-
+  end
+  
   def authenticate_employer!
     unless current_user && current_user.user_employer
       flash[:danger] = "Access Denied"
