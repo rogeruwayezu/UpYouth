@@ -11,5 +11,8 @@ Rails.application.routes.draw do
   post "/login" => "sessions#create"
   get "/logout" => "sessions#destroy"
 
+  get "/dashboards/freelancer", to: 'dashboards#freelancer'
+  get "/dashboards/employer", to: 'dashboards#employer'
+
 
 end
