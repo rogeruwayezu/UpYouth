@@ -12,18 +12,18 @@ class ApplicationController < ActionController::Base
     redirect_to "/posts" unless current_user
   end
   
-  def authenticate_employer!
-    unless current_user && current_user.user_employer
-      flash[:danger] = "Access Denied"
-      redirect_to "/"
-    end
-  end
+  # def authenticate_employer!
+  #   unless current_user && current_user.user_employer
+  #     flash[:danger] = "Access Denied"
+  #     redirect_to "/"
+  #   end
+  # end
   
-  def authenticate_freelancer!
-    unless current_user && current_user.user_freelancer
-      flash[:danger] = "Access Denied"
-      redirect_to "/"
-    end
+  # def authenticate_freelancer!
+  #   unless current_user && current_user.user_freelancer
+  #     flash[:danger] = "Access Denied"
+  #     redirect_to "/"
+  #   end
 
-  end
+  # end
 end
