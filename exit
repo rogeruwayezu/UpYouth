@@ -1,0 +1,110 @@
+[33mcommit e11ed07261925596ee26c3832e52f6fc90b5e980[m
+Author: rogeruwayezu <rogeruwayezu@gmail.com>
+Date:   Tue Aug 22 10:33:22 2017 +0200
+
+    changed params
+
+[33mcommit 2c5364b11d086ed1e33eb4d13bf851b2ea3c191d[m
+Merge: 06104c2 982068c
+Author: gedeonntwali <ntwari28@gmail.com>
+Date:   Tue Aug 22 10:30:16 2017 +0200
+
+    Merge pull request #2 from rogeruwayezu/session
+    
+    signup page
+
+[33mcommit 982068c4bbd1b18a2961c1d15f0a4fbb6e442dfe[m
+Author: Gedeon Ntwali <ntwari28@gmail.com>
+Date:   Tue Aug 22 12:28:45 2017 +0200
+
+    signup page
+
+[33mcommit 06104c2451acc5e833568aee55fb39968623d9c7[m
+Author: rogeruwayezu <rogeruwayezu@gmail.com>
+Date:   Tue Aug 22 10:20:10 2017 +0200
+
+    added index page for posts controller
+
+[33mcommit 2b3a4df7bc38bf3c34e20549bd86612869297e6f[m
+Merge: 82c57ce 247b599
+Author: gedeonntwali <ntwari28@gmail.com>
+Date:   Tue Aug 22 10:17:11 2017 +0200
+
+    Merge pull request #1 from rogeruwayezu/session
+    
+    login page
+
+[33mcommit 247b5995fba5c9df3f9d2c3bcb02a4b138840038[m
+Merge: 22328d4 82c57ce
+Author: gedeonntwali <ntwari28@gmail.com>
+Date:   Tue Aug 22 10:16:52 2017 +0200
+
+    Merge branch 'master' into session
+
+[33mcommit 22328d49139684ccb1101a6b8d66ffd61af56e65[m
+Author: Gedeon Ntwali <ntwari28@gmail.com>
+Date:   Tue Aug 22 11:53:20 2017 +0200
+
+    login page
+
+[33mcommit 82c57ce8a3c954c27d34c782ee9ec2dd6ec9a0c9[m
+Author: rogeruwayezu <rogeruwayezu@gmail.com>
+Date:   Tue Aug 22 10:14:09 2017 +0200
+
+    completed users
+
+[33mcommit a01610a0b580d90e2a60b8fe7f1bd804a3971874[m
+Merge: 9344816 831b2bb
+Author: rogeruwayezu <rogeruwayezu@gmail.com>
+Date:   Tue Aug 22 09:44:57 2017 +0200
+
+    Merge branch 'master' of github.com:rogeruwayezu/UpYouth
+
+[33mcommit 831b2bbd3d7b5dbf16ec94a0f4fb8d33511723f8[m
+Merge: f5f0049 b9e6441
+Author: Gedeon Ntwali <ntwari28@gmail.com>
+Date:   Tue Aug 22 11:36:01 2017 +0200
+
+    Merge branch 'master' of https://github.com/rogeruwayezu/UpYouth
+
+[33mcommit f5f0049ddd4a64e13cfda74cdcdd1bf5e18835d0[m
+Author: Gedeon Ntwali <ntwari28@gmail.com>
+Date:   Tue Aug 22 11:31:25 2017 +0200
+
+    working on sessions
+
+[33mcommit 9344816aff74ef5be8b706c779f7a3d2ef9cb088[m
+Author: rogeruwayezu <rogeruwayezu@gmail.com>
+Date:   Tue Aug 22 09:44:37 2017 +0200
+
+    added view for sessions
+
+[33mcommit b2c6e8f94df1b2608c0291ba40b9f670463db7e0[m
+Author: rogeruwayezu <rogeruwayezu@gmail.com>
+Date:   Tue Aug 22 09:41:48 2017 +0200
+
+    added signup page
+
+[33mcommit b9e644143f38e9c722aa284387dae18b6bc22453[m
+Author: rogeruwayezu <rogeruwayezu@gmail.com>
+Date:   Tue Aug 22 09:30:38 2017 +0200
+
+    added views for users
+
+[33mcommit 08c1351e773fc823ff3ea6c29a6d01755902214c[m
+Author: rogeruwayezu <rogeruwayezu@gmail.com>
+Date:   Tue Aug 22 09:21:26 2017 +0200
+
+    added controllers
+
+[33mcommit 1576a2fa75442d612e81ccd66d537fcc7bcbda7c[m
+Author: rogeruwayezu <rogeruwayezu@gmail.com>
+Date:   Fri Aug 18 12:36:20 2017 +0200
+
+    added associations
+
+[33mcommit 4c2d692ba1f7619c4d408a9d52183aa042b5b0a8[m
+Author: rogeruwayezu <rogeruwayezu@gmail.com>
+Date:   Fri Aug 18 12:07:45 2017 +0200
+
+    initial commit

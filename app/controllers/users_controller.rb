@@ -1,15 +1,18 @@
 class UsersController < ApplicationController
   def new
-    render 'new.html.erb'
+    @roles = Role.all
+    render 'new.html.erb' 
   end
 
   def create
+
     user = User.new(
       first_name: params[:first_name],
       last_name: params[:last_name],
       email: params[:email],
       password: params[:password],
-      password_confirmation: params[:password_confirmation])
+      password_confirmation: params[:password_confirmation],
+      role_id: params[:role_id])
 
     if user.save
          session[:user_id] = user.id
