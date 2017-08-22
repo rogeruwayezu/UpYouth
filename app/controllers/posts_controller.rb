@@ -7,6 +7,8 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_by(id: params[:id])
+    @categories = @post.categories
+    kk
   end
 
   def new
@@ -15,7 +17,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new({user_id: params[:user_id], title: params[:title], category_id: params[:category_id], description: params[:description], budget: params[:budget], deadline: params[:deadline], skills: params[:skills]})
+    @categories = Category.all
+    @post = Post.new({user_id: params[:user_id], title: params[:title], description: params[:description], budget: params[:budget], deadline: params[:deadline], skills: params[:skills]})
     if @post.save
       flash[:success] = "Job Post Created"
       redirect_to "/posts/#{@post.id}"
