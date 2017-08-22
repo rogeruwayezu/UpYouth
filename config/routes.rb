@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get "/posts", to: 'posts#index'
 
   get "/signup" => "users#new"
+  get "/freelancer" => "users#freelancer"
   post "/users" => "users#create"
   get "/login" => "sessions#new"
   post "/login" => "sessions#create"
