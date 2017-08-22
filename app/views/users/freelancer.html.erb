@@ -1,5 +1,6 @@
-
 <h1>Signup!</h1>
+<h2> Please, don't write it</h2>
+
 <%= form_tag '/users', method: :post do  %>
   <div>
     First Name: <input type="text" name="first_name">
@@ -11,7 +12,7 @@
     Email: <input type="email" name="email">
   </div>
   <div>
-     <input type="hidden" name="role_id" value="<%= @roles.first.id%>">      
+     <input type="hidden" name="role_id" value="<%= @roles.second.id%>">      
   </div>
   <div>
     Password: <input type="password" name="password">

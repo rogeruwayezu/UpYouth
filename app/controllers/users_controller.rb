@@ -4,6 +4,11 @@ class UsersController < ApplicationController
     render 'new.html.erb' 
   end
 
+  def freelancer
+    @roles = Role.all
+    render 'freelancer.html.erb'
+  end
+
   def create
 
     user = User.new(
