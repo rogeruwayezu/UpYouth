@@ -4,7 +4,7 @@
 
       <h4> New Job Post </h4>      
 
-      <%= form_tag "/posts?ca", method: :post do %>
+      <%= form_tag "/posts", method: :post do %>
 
         <form>
           
@@ -15,7 +15,7 @@
             <input type="text" class="form-control" name="title" id="focusedInput"  placeholder="Enter the title">
           </div>
           
-          <div class="form-group">
+           <div class="form-group">
             <label for="focusedInput">Job Category</label>
               <select name="category_id">
               <option value="" disabled selected>Select your category</option>
@@ -46,7 +46,7 @@
           </div>
          
           <div class="checkbox">
-            <% button_to "Submit", "/"
+            <input type="submit" name="Submit">
           </div>
         </form>
 
