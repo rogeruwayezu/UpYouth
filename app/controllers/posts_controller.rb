@@ -47,7 +47,7 @@ class PostsController < ApplicationController
     post = Post.find_by(id: params[:id])
     post.destroy
     flash[:warning] = "Job Post Deleted"
-    redirect_to :back
+    redirect_to "/dashboards/employer"
   end
 
   

@@ -8,21 +8,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Alice" />
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
     
   </head>
 
   <div class="w3-top">
-  <div class="w3-bar w3-white w3-padding w3-card-2" style="letter-spacing:4px;">
-    <a href="/posts" class="w3-bar-item w3-button">UpYouth</a>
+  <div class="w3-bar w3-white w3-padding w3-card-2" style="letter-spacing:2px;">
+    <a href="/" class="w3-bar-item w3-button"><strong>UpYouth</strong></a>
     <!-- Right-sided navbar links. Hide them on small screens -->
     <div class="w3-right w3-hide-small">
-      <a href="#about" class="w3-bar-item w3-button">About</a>
-      <a href="#menu" class="w3-bar-item w3-button">Menu</a>
+      <a href="#about" class="w3-bar-item w3-button"><strong>About</strong></a>
+      <a href="#menu" class="w3-bar-item w3-button"><strong>Menu</strong></a>
       <% if current_user %>
-        <a href="/logout" class="w3-bar-item w3-button">Logout</a>
+        <a href="/logout" class="w3-bar-item w3-button"><strong>Logout</strong></a>
         <% else %> 
-          <a href="/login" class="w3-bar-item w3-button">Log in</a>                      
+          <a href="/login" class="w3-bar-item w3-button"><strong>Login</strong></a>                      
       <% end %>
 
     </div>

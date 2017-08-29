@@ -13,8 +13,26 @@
  *= require_tree .
  *= require_self
  */
+
 body {
   padding-top: 82px;
-  font-family: Alice;
+  font-family: 'Josefin Slab', serif;
 }
-
+.jumbotron{
+  font-family: 'Josefin Slab', serif;
+  background-color: #4f5b7a;
+  width:350px;
+  height:130px;
+  padding: 20px;
+  margin-top: -70px;
+}
+.employer{
+  float: left;
+}
+.freelancer{
+  float: right;
+}
+.w3-top{
+  font-family: 'Josefin Slab', serif;
+  font-size: 20px;
+}

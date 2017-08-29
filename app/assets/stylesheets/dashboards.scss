@@ -3,11 +3,13 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 table {
+    font-family: 'Josefin Slab', serif;
     border-collapse: collapse;
     width: 100%;
 }
 
 th, td {
+    font-family: 'Josefin Slab', serif;
     padding: 8px;
     text-align: left;
     border-bottom: 1px solid #ddd;

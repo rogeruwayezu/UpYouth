@@ -1,12 +1,11 @@
-<header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
-  <div class="w3-display-bottomleft w3-padding-large w3-opacity">
-    <h1 class="w3-xxlarge">UpYouth</h1>
-    <p> Choose who you want to be</p>
-  </div>
-</header>
-<!-- Navbar (sit on top) -->
+<div class="container">
+<div class="jumbotron">    
 <body class="choose">
-  <%= button_to "Hiring/Employer", "/signup", class: "btn btn-primary", method: :get  %>
-  <%= button_to "Freelancer", "/freelancer", class: "btn btn-primary", method: :get  %>
+  <p style="color: white; font-size: 20px">You can join UpYouth as:</p>
+  <%= button_to "Hiring/Employer", "/signup",  class: "btn btn-primary employer", method: :get  %>
+  <%= button_to "Freelancer", "/freelancer", class: "btn btn-primary freelancer", method: :get  %>
 </body>
+</div>
+</div>
+
           
