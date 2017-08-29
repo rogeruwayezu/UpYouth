@@ -16,7 +16,7 @@
       <tr>
         <td> <%= link_to post.title, "/posts/#{post.id}" %> </td>
         <td><%= post.description%></td>   
-        <td><%= button_to "Delete", "/posts/#{post.id}", method: :delete, data: { confirm: 'are you sure?' } %></td>   
+        <td><%= button_to "Delete", "/posts/#{post.id}", class: "btn btn-danger", method: :delete, data: { confirm: 'are you sure?' } %></td>   
       </tr>
     <% end %>
   </table>
