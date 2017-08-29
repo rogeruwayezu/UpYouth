@@ -1,17 +1,15 @@
 <div class="container">
-  <div class="row">
-    
-    <div class="col-md-4">
-      <%= form_tag "/login", method: :post do %>
-        <form class="form-signin">
-          <h1 class="form-signin-heading text-muted">Login</h1>
-          <input type="text" class="form-control" name="email" placeholder="Email address" required="" autofocus="">
-          <input type="password" class="form-control" name="password" placeholder="Password" required="">
-          <button class="btn btn-lg btn-primary btn-block" type="submit">
-            Login
-          </button>
-        </form>
-      <% end %>
-    </div>
+  <div class="col-md-6">
+      <div id="logbox">
+        <%= form_tag "/login", method: :post do %>
+          <h1>Login</h1>
+          <input name="email" type="email" placeholder="enter your email" class="input pass"/>
+          <input name="password" type="password" placeholder="enter your password" required="required" class="input pass"/>
+          <input type="submit" value="Login" class="inputButton"/>
+          <div class="text-center"">
+            Don't already have an account?<a href="/signup" id=""> create an account</a> 
+          </div>
+        <% end %>
+      </div>
   </div>
 </div>

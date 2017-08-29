@@ -18,8 +18,14 @@
     <div class="w3-right w3-hide-small">
       <a href="#about" class="w3-bar-item w3-button">About</a>
       <a href="#menu" class="w3-bar-item w3-button">Menu</a>
-      <a href="#contact" class="w3-bar-item w3-button">Contact</a>
+      <% if current_user %>
+        <a href="/logout" class="w3-bar-item w3-button">Logout</a>
+        <% else %> 
+          <a href="/login" class="w3-bar-item w3-button">Log in</a>                      
+      <% end %>
+
     </div>
+
   </div>
 </div>
  <!-- Header -->
