@@ -1,8 +1,12 @@
 class ApplicationsController < ApplicationController
 
   def index
-    @applications = Application.all
-    @posts = Post.all
+    @posts = current_user.posts
+    
+    @posts.each do |post|
+      @applications = post.applications
+    end
+
   end
 
   def show
@@ -20,8 +24,15 @@ class ApplicationsController < ApplicationController
       
       user_id: params[:user_id],
       duration: params[:duration],
-      cv: params[:cv],
       cover_letter: params[:cover_letter],
       post_id: params[:post_id]})
+    if @application.save
+      flash[:success] = "Job Application Succesfully Submited"
+      redirect_to "/applications/#{@application.id}"
+    else      
+      flash[:warning] = "Job Application Not Submited"
+      render :new
+    end
+
   end
 end

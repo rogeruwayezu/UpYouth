@@ -3,11 +3,11 @@
    <div class="col-md-12">
    
     <h4> Fill this form to apply for this job </h4>
+    
 
     <%= form_tag "/applications", :multipart => true, method: :post do %>
 
     <script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
-
     <form>
 
       <input type="hidden" name="post_id" class="form_control" value="<%= @post.id %>">

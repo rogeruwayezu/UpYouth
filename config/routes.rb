@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   get "/dashboards/freelancer", to: 'dashboards#freelancer'
   get "/dashboards/employer", to: 'dashboards#employer'
 
+  get "/applications", to: 'applications#index'
   get "/applications/new", to: 'applications#new'
   get "/applications/:id", to: 'applications#show'
   post "/applications", to: 'applications#create'
