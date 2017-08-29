@@ -1,5 +1,20 @@
-<h1>Hire a freelancer</h1>
-<% @posts.each do |post| %>
-  <p><%= post.tile%></p>
-  <p><%= post.description%></p>
-<% end %>
+<div class="container"> 
+  <h1>Hire a freelancer</h1>
+
+  <table>
+    <tr>
+      <th>
+        Postings
+      </th>
+      <th>
+         <button type="submit" class="btn btn-success"><%= link_to "Post A New Job", "/posts/new" %></button>
+      </th>
+    </tr>
+    <% @posts.each do |post| %>
+      <tr>
+        <td> <%= link_to post.title, "/posts/#{post.id}" %> </td>
+        <td><%= post.description%></td>      
+      </tr>
+    <% end %>
+  </table>
+</div>

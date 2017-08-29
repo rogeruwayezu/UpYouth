@@ -7,18 +7,15 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_by(id: params[:id])
-    @categories = @post.categories
-    kk
   end
 
   def new
     @post = Post.new
-    @categories = Category.new     
+    @categories = Category.all     
   end
 
   def create
-    @categories = Category.all
-    @post = Post.new({user_id: params[:user_id], title: params[:title], description: params[:description], budget: params[:budget], deadline: params[:deadline], skills: params[:skills]})
+    @post = Post.new({user_id: params[:user_id], title: params[:title], description: params[:description], budget: params[:budget], deadline: params[:deadline], skills: params[:skills], category_id: params[:category_id]})
     if @post.save
       flash[:success] = "Job Post Created"
       redirect_to "/posts/#{@post.id}"
@@ -26,6 +23,7 @@ class PostsController < ApplicationController
       flash[:warning] = "Job Post NOT Created"
       render :new
     end
+
   end
 
   def edit
