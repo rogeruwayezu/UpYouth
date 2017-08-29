@@ -1,18 +1,18 @@
- <div class="container-fluid">
+ <div class="container">
    <div class="row"> 
      <div class="col-md-8">      
 
       <h4><%= @post.title %></h4>
-        <p><strong>Category: </strong>
-      
-        <p><%= @post.category.name %> </p>
-      
+        <p><strong>Category</strong>:<%= @post.category.name %> </p>
         <p><strong>Description</strong>:<%= @post.description %></p>
         <p><strong>Job Budget</strong>:<%= @post.budget %></p>
         <p><strong>Required Skills</strong>:<%= @post.skills %></p>
         <p><strong>Deadline</strong>: <%= @post.deadline %></p>
-      </div>
 
-      
+        <%= form_tag "/applications/new?post_id=#{@post.id} ", method: :get do %>
+          <input type="hidden" name="post_id" class="form_control" value="<%= @post.id %>">
+         <%= button_to "Apply Now" %>
+        <% end %>
+    </div>
   </div>
 </div>

@@ -25,9 +25,13 @@
              </select>
           </div>
 
+          
           <div class="form-group">
-            <label for="focusedInput">Job Description</label>
-            <textarea class="form-control" name="description" id="focusedInput" rows="3"></textarea>
+            <label>Job Description</label>
+            <textarea name="description"></textarea>
+              <script>
+                  CKEDITOR.replace( 'description' );
+              </script>
           </div>
 
           <div class="form-group">

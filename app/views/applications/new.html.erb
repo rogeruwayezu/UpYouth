@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+   <div class="col-md-12">
+   
+    <h4> Fill this form to apply for this job </h4>
+
+    <%= form_tag "/applications", :multipart => true, method: :post do %>
+
+    <script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
+
+    <form>
+
+      <input type="hidden" name="post_id" class="form_control" value="<%= @post.id %>">
+      <input type="hidden" name="user_id" class="form_control" value="<%= current_user.id %>">
+
+      <div class="form-group">
+        <label for="duration">Duration</label>
+        <input type="text" class="form-control" name="duration">
+        <small class="form-text text-muted">Give us the period of time that you will use to finish the job.</small>
+      </div>
+
+      <div class="form-group">
+        <label>Cover Letter</label>
+        <p>Write your cover letter here</p>
+        <textarea name="cover_letter"></textarea>
+          <script>
+              CKEDITOR.replace( 'cover_letter' );
+          </script>
+      </div>
+
+      <div class="checkbox">
+        <input type="submit" class="btn btn-primary active" name="Submit your application">
+      </div>
+
+    </form>
+<% end %>
+</div>
+</div>
+</div>

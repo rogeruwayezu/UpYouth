@@ -1,6 +1,7 @@
 <h1>Jobs Available</h1>
 
 <% @posts.each do |post| %>
-  <p><%= post.title%></p>
+  <p><%= link_to post.title, "/posts/#{post.id}"%></p>
   <p><%= post.description%></p>
 <% end %>
+

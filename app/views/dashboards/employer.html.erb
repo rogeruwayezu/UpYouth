@@ -1,23 +1,22 @@
-<div class="container"> 
-  
+<div class="container">
+  <div class="row"> 
+  <button type="submit" class="btn btn-success"><%= link_to "Post A New Job", "/posts/new" %></button>
   <table>
     <tr>
       <th>
-        Postings
+        Job Title
       </th>
       <th>
-         <button type="submit" class="btn btn-success"><%= link_to "Post A New Job", "/posts/new" %></button>
+        Applications 
       </th>
-      <th>
-       Delete
-      </th> 
     </tr>
     <% @posts.each do |post| %>
       <tr>
         <td> <%= link_to post.title, "/posts/#{post.id}" %> </td>
-        <td><%= post.description%></td>   
+           
         <td><%= button_to "Delete", "/posts/#{post.id}", class: "btn btn-danger", method: :delete, data: { confirm: 'are you sure?' } %></td>   
       </tr>
     <% end %>
   </table>
+  </div>
 </div>
