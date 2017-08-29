@@ -1,5 +1,5 @@
 <div class="container"> 
-  <h1>Hire a freelancer</h1>
+  
   <table>
     <tr>
       <th>
@@ -8,11 +8,15 @@
       <th>
          <button type="submit" class="btn btn-success"><%= link_to "Post A New Job", "/posts/new" %></button>
       </th>
+      <th>
+       Delete
+      </th> 
     </tr>
     <% @posts.each do |post| %>
       <tr>
         <td> <%= link_to post.title, "/posts/#{post.id}" %> </td>
-        <td><%= post.description%></td>      
+        <td><%= post.description%></td>   
+        <td><%= button_to "Delete", "/posts/#{post.id}", method: :delete, data: { confirm: 'are you sure?' } %></td>   
       </tr>
     <% end %>
   </table>
