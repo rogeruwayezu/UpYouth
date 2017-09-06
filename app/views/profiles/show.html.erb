@@ -1,0 +1,14 @@
+<div class="container">
+   <div class="row"> 
+     <div class="col-md-8">      
+
+      <h4>Profile</h4>
+        <p><strong>Overview</strong>:<%= @profile.overview %> </p>
+        <p><strong>Portfolio</strong>:<%= @profile.portfolio %></p>
+        <p><strong>Employment History</strong>:<%= @profile.employment_history %></p>
+        <p><strong>Education</strong>:<%= @profile.education %></p>
+        <p><strong>Certifications</strong>: <%= @profile.certifications %></p>
+        <%= button_to "Edit", "/posts/#{@profile.id}", class: "btn btn-danger", method: :patch %>
+     </div>
+  </div>
+</div>
