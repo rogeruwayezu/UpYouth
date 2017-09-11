@@ -4,4 +4,5 @@
   <p><%= link_to post.title, "/posts/#{post.id}"%></p>
   <p><%= post.description%></p>
 <% end %>
+  <%= button_to "Profile", "/profiles/#{@profile.id}", class: "btn btn-success", method: :get %>
 

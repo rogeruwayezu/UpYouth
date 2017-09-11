@@ -1,14 +1,56 @@
-<div class="container">
+<div class="container-fluid">
    <div class="row"> 
+
+     <div class="col-md-2">
+     </div>
      <div class="col-md-8">      
 
       <h4>Profile</h4>
-        <p><strong>Overview</strong>:<%= @profile.overview %> </p>
-        <p><strong>Portfolio</strong>:<%= @profile.portfolio %></p>
-        <p><strong>Employment History</strong>:<%= @profile.employment_history %></p>
-        <p><strong>Education</strong>:<%= @profile.education %></p>
+        
+        <div class="jumbotron jumbotron-special">
+          <h4>Overview 
+          <a href="/portfolios/new">
+          <span class="glyphicon glyphicon-pencil" style="float: right;"></span>
+          </a>
+          </h4>
+          <p><% @profile.overview %></p>
+
+        </div>
+<br>
+        <div class="jumbotron jumbotron-special">
+          <h4>Portfolio
+          <a href="/portfolios/new">
+            <button type="button" class="btn btn-default btn-sm">
+            <span class="glyphicon glyphicon-plus-sign"></span> New Project
+            </button> 
+          </a>
+          </h4>
+
+          <% if !@portfolios.blank? %>
+            <% @portfolios.each do |portfolio|%>
+              <p><%= portfolio.title %></p>
+              <p><%= portfolio.overview %></p>
+              <iframe src="<%= portfolio.file_url %>" width="500" height="780" style ="border: none;"></iframe>
+            <% end %>
+          <% end %>
+
+        </div>
+<br>
+        <div class="jumbotron jumbotron-special">
+         <h4>Employment History 
+         <a href="/portfolios/new">
+          <span class="glyphicon glyphicon-pencil" style="float: right;"></span>
+          </a>
+         </h4>
+        <% if !@employment_history.blank? %>
+           <p><%= @employment_history.company %></p>
+           <p><%= @employment_history.role %></p>
+        <% end %>
+        </div>
+
+        <p><strong>Education</strong></p>
         <p><strong>Certifications</strong>: <%= @profile.certifications %></p>
-        <%= button_to "Edit", "/posts/#{@profile.id}", class: "btn btn-danger", method: :patch %>
+        
      </div>
   </div>
 </div>

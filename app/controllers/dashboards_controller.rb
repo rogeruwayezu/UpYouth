@@ -1,6 +1,7 @@
 class DashboardsController < ApplicationController
   def freelancer
     @posts = Post.all
+    @profile = current_user.profile
     render 'freelancer.html.erb' 
   end
   def employer

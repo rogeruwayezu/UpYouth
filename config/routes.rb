@@ -29,6 +29,12 @@ Rails.application.routes.draw do
   post "/applications", to: 'applications#create'
 
   resources :profiles
+  resources :portfolios
+  resources :educations
+  resources :employment_histories
+  resources :other_experiences
+
+  
 
 
 end
