@@ -1,4 +1,9 @@
 class EmploymentHistoriesController < ApplicationController
+  
+  def index
+    @employment_histories = EmploymentHistory.all
+  end
+
   def show
     @employment_history = EmploymentHistory.find_by(id: params[:id])
   end
@@ -12,7 +17,7 @@ class EmploymentHistoriesController < ApplicationController
     @employment_history = EmploymentHistory.new({user_id: params[:user_id], company: params[:company], location: params[:location], position: params[:position], role: params[:role], period: params[:period], responsabilities: params[:responsabilities]})
     if @employment_history.save
       flash[:success] = "Employment_history Created"
-      redirect_to "/profiles/#{current_user.profile.id}"
+      redirect_to "/employment_histories/#{@employment_history.id}"
     else      
       flash[:warning] = "Employment History NOT Created"
       render :new

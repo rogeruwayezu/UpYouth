@@ -2,9 +2,9 @@
   <div class="row">
     <div class="col-md-12">
 
-      <h4>Create your Profile </h4>      
+      <h4>Edit Overview </h4>      
 
-      <%= form_tag "/profiles", method: :post do %>
+      <%= form_tag "/profiles/#{@profile.id}", method: :patch do %>
 
         <form>
           
@@ -12,12 +12,13 @@
 
           <div class="form-group">
             <label for="focusedInput">Overview</label>
-            <textarea type="text" class="form-control" name="overview" id="focusedInput"  placeholder="Enter your overview"></textarea>
+            <textarea type="text" class="form-control" name="overview" id="focusedInput"  placeholder="Enter your overview"><%= @profile.overview %></textarea>
           </div>
 
           <div class="checkbox">
             <input type="submit" name="Submit">
           </div>
+
         </form>
 
       <% end %>

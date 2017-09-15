@@ -37,6 +37,7 @@ class PostsController < ApplicationController
   def update
     
     @post = Post.find_by(id: params[:id])
+    @categories = Category.all
     @post.assign_attributes(title: params[:title], description: params[:description], budget: params[:budget], deadline: params[:deadline], category_id: params[:category_id], skills: params[:skills])
     if @post.save
       flash[:success] = "Job Post Updated"

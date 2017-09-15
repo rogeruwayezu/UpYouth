@@ -19,12 +19,15 @@
     <a href="/" class="w3-bar-item w3-button"><strong>UpYouth</strong></a>
     <!-- Right-sided navbar links. Hide them on small screens -->
     <div class="w3-right w3-hide-small">
-    <% if current_user %>
+    <% if current_user && current_user.role.id ==1 %>
+      <a href="/dashboards/employer" class="w3-bar-item w3-button"><strong>Home</strong></a>
+    <% end %>
+
+    <% if current_user && current_user.role.id ==2 %>
       <a href="/dashboards/freelancer" class="w3-bar-item w3-button"><strong>Home</strong></a>
     <% end %>
     
       <a href="#about" class="w3-bar-item w3-button"><strong>About</strong></a>
-      <a href="#menu" class="w3-bar-item w3-button"><strong>Menu</strong></a>
       <% if current_user %>
         <a href="/logout" class="w3-bar-item w3-button"><strong>Logout</strong></a>
         <% else %> 

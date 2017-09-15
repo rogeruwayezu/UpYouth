@@ -9,11 +9,9 @@
         
         <div class="jumbotron jumbotron-special">
           <h4>Overview 
-          <a href="/portfolios/new">
-          <span class="glyphicon glyphicon-pencil" style="float: right;"></span>
-          </a>
+          <%= link_to '<i class="glyphicon glyphicon-pencil"></i>'.html_safe,"/profiles/#{@profile.id}/edit" %>
           </h4>
-          <p><% @profile.overview %></p>
+          <p><%= @profile.overview %></p>
 
         </div>
 <br>
@@ -28,9 +26,7 @@
 
           <% if !@portfolios.blank? %>
             <% @portfolios.each do |portfolio|%>
-              <p><%= portfolio.title %></p>
-              <p><%= portfolio.overview %></p>
-              <iframe src="<%= portfolio.file_url %>" width="500" height="780" style ="border: none;"></iframe>
+              <p><%= link_to portfolio.title, "/portfolios/#{portfolio.id}" %></p>
             <% end %>
           <% end %>
 
@@ -38,18 +34,21 @@
 <br>
         <div class="jumbotron jumbotron-special">
          <h4>Employment History 
-         <a href="/portfolios/new">
-          <span class="glyphicon glyphicon-pencil" style="float: right;"></span>
+         <a href="/employment_histories/new">
+          <button type="button" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-plus-sign"></span>New Experience
+          </button>
           </a>
          </h4>
-        <% if !@employment_history.blank? %>
-           <p><%= @employment_history.company %></p>
-           <p><%= @employment_history.role %></p>
+        <% if !@employment_histories.blank? %>
+           <% @employment_histories.each do |employment_history| %>
+             <%= link_to employment_history.company, "/employment_histories/#{employment_history.id}" %></p>
+           <% end %>
         <% end %>
         </div>
 
         <p><strong>Education</strong></p>
-        <p><strong>Certifications</strong>: <%= @profile.certifications %></p>
+       
         
      </div>
   </div>
