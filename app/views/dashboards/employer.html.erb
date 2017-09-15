@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row"> 
   <button type="submit" class="btn btn-success"><%= link_to "Post A New Job", "/posts/new" %></button>
+  <div class="col-md-8">
   <table>
     <tr>
       <th>
@@ -9,14 +10,23 @@
       <th>
         Applications 
       </th>
+      <th>
+        Setting
+      </th>
+
     </tr>
     <% @posts.each do |post| %>
       <tr>
         <td> <%= link_to post.title, "/posts/#{post.id}" %> </td>
         <td> <a href= "/applications"><% @count = @applications.count %>
-        <%= @count %> (<%= @count.to_i - 1%> new)</a></td>       
+        <%= @count %> (<%= @count.to_i - 1%> new)</a></td>
+
+        <td> <%= link_to '<i class="glyphicon glyphicon-cog"></i>'.html_safe,"/posts/#{post.id}/edit" %>
+        </a>
+        </td>
       </tr>
     <% end %>
   </table>
+  </div>
   </div>
 </div>

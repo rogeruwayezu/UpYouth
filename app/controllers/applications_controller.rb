@@ -1,10 +1,18 @@
 class ApplicationsController < ApplicationController
 
   def index
-    @posts = current_user.posts
     
-    @posts.each do |post|
-      @applications = post.applications
+    if current_user && current_user.role.id == 1 
+      @posts = current_user.posts
+      @posts.each do |post|
+        @applications = post.applications
+      end
+    else
+      @applications = current_user.applications
+      @posts = []
+      @applications.each do |application|
+        @posts << application.post
+      end
     end
 
   end

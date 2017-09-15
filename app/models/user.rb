@@ -5,8 +5,8 @@ class User < ApplicationRecord
    has_many :applications
    has_one :profile
    has_many :portfolios
-   has_one :education
-   has_one :employment_history
-   has_one :other_experience
+   has_many :educations
+   has_many :employment_histories
+   has_many :other_experiences
 
 end

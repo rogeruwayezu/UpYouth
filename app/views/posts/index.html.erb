@@ -1,14 +1,17 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
-      <% @posts.each do |post| %>      
-            <div class="jumbotron">
-              <h3><%= link_to post.title, "/posts/#{post.id}" %></h3>
-              <p style="font-size: 17px;color:black;""><%= truncate raw(post.description), length: 30 %> | <%= link_to 'Read More', "/posts/#{post.id}" %>
-              <p style="font-size: 17px;"><strong>Apply before : </strong><%= post.deadline %></p>
-              </p>
+    <div class="col-md-8">
+      <h4>Jobs Available</h4>       
+          <% @posts.each do |post| %>
+            <div class="jumbotron jumbotron-special">
+              <p><%= link_to post.title, "/posts/#{post.id}"%></p>
+              <p><%= post.description%></p>
             </div>
-        <% end %>
+            <br>
+          <% end %>
+    </div>
+    
+    <div class="col-md-4">
     </div>
   </div>
 </div>

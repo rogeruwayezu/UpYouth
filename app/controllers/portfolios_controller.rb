@@ -12,7 +12,7 @@ class PortfoliosController < ApplicationController
     @portfolio = Portfolio.new({user_id: current_user.id, title: params[:title], overview: params[:overview], file: params[:file], category_id: params[:category_id]})
     if @portfolio.save
       flash[:success] = "Portfolio Created"
-      redirect_to "/profiles/#{current_user.profile.id}"
+      redirect_to "/portfolios/#{@portfolio.id}"
     else      
       flash[:warning] = "Job Portfolio NOT Created"
       render :new
