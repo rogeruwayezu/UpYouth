@@ -10,7 +10,7 @@ class ProfilesController < ApplicationController
   end
 
   def create
-    @profile = Profile.create({overview: params[:overview], user_id: params[:user_id]})
+    @profile = Profile.create({overview: params[:overview], user_id: params[:user_id], profile_picture: params[:profile_picture]})
     redirect_to "/profiles/#{@profile.id}"
   end
 
@@ -23,7 +23,7 @@ class ProfilesController < ApplicationController
   def update
     
     @profile = Profile.find_by(id: params[:id])
-    @profile.assign_attributes(overview: params[:overview],user_id: params[:user_id])
+    @profile.assign_attributes(overview: params[:overview],user_id: params[:user_id],profile_picture: params[:profile_picture])
     if @profile.save
       flash[:success] = "Profile Updated"
       redirect_to "/profiles/#{@profile.id}"

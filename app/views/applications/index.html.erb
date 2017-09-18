@@ -1,35 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <% if !@applications.blank? %>
+        
+          <% if current_user && current_user.role.id == 1 %>
+            <h3>Submitted Applications</h3>
+              <% @count = @applications.count %>
+                <h2><%= @count %> (<%= @count.to_i - 1%> new) </h2> 
+              <% @applications.each do |application| %>
+                  <h4><%= application.post.title %></h4>
+                  <p><strong>First Name</strong>:<%= application.user.first_name %> </p>
+                  <p><strong>Last Name</strong>:<%= application.user.last_name %> </p>
+                  <p><strong>Duration</strong>:<%= application.duration %> </p>
+                  <p><strong>Cover Letter</strong>:<%= raw(application.cover_letter) %></p>
+                  <%= button_to "Hire", "/applications/#{application.id}", class: "btn btn-success", method: :patch %>
+              <% end %>
 
-<h1>Submitted Applications</h1>
-<% if !@applications.blank? %>
-  <% @count = @applications.count %>
-    <h2><%= @count %> (<%= @count.to_i - 1%> new) </h2> 
-  <% @applications.each do |application| %>
-      <h4><%= application.post.title %></h4>
-      <p><strong>First Name</strong>:<%= application.user.first_name %> </p>
-      <p><strong>Last Name</strong>:<%= application.user.last_name %> </p>
-      <p><strong>Duration</strong>:<%= application.duration %> </p>
-      <p><strong>Cover Letter</strong>:<%= raw(application.cover_letter) %></p>
-  <% end %>
-<% end %>
+          <% else %>
+            <h3> My Applications </h3>
+              <% @applications.each do |application| %>
+                <h4><%= application.post.title %></h4>
+              <% end %>
+          <%end%>
 
-<% if current_user && current_user.role.id == 1 %>
-  <h3>Submitted Applications</h1>
-    <% @count = @applications.count %>
-      <h2><%= @count %> (<%= @count.to_i - 1%> new) </h2> 
-    <% @applications.each do |application| %>
-        <h4><%= application.post.title %></h4>
-        <p><strong>First Name</strong>:<%= application.user.first_name %> </p>
-        <p><strong>Last Name</strong>:<%= application.user.last_name %> </p>
-        <p><strong>Duration</strong>:<%= application.duration %> </p>
-        <p><strong>Cover Letter</strong>:<%= raw(application.cover_letter) %></p>
-    <% end %>
-
-<% else %>
-  <h3> My Applications </h3>
-    <% @applications.each do |application| %>
-      <h4><%= application.post.title %></h4>
-    <% end %>
-<%end%>
+       <% end %>
+    </div>
+  </div>
+</div>
 
 
 

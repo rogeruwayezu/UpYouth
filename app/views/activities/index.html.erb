@@ -1,0 +1,5 @@
+<% @activities.each do |activity| %>
+  <%= activity.owner.first_name %>
+  <%= activity.key%>
+<% end %>
+<%= link_to "clear", "/clear", method: :delete, style: "color: blue;"%>

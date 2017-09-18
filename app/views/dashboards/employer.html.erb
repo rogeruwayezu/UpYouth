@@ -13,6 +13,9 @@
       <th>
         Setting
       </th>
+      <th>
+        Hiring
+      </th>
 
     </tr>
     <% @posts.each do |post| %>
@@ -23,6 +26,9 @@
 
         <td> <%= link_to '<i class="glyphicon glyphicon-cog"></i>'.html_safe,"/posts/#{post.id}/edit" %>
         </a>
+        </td>
+        <td>
+        
         </td>
       </tr>
     <% end %>

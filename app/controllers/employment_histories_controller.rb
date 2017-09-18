@@ -14,7 +14,7 @@ class EmploymentHistoriesController < ApplicationController
   end
 
   def create
-    @employment_history = EmploymentHistory.new({user_id: params[:user_id], company: params[:company], location: params[:location], position: params[:position], role: params[:role], period: params[:period], responsabilities: params[:responsabilities]})
+    @employment_history = EmploymentHistory.new({user_id: params[:user_id], company: params[:company], location: params[:location], position: params[:position], role: params[:role], period: params[:period], responsibilities: params[:responsibilities]})
     if @employment_history.save
       flash[:success] = "Employment_history Created"
       redirect_to "/employment_histories/#{@employment_history.id}"
@@ -35,7 +35,7 @@ class EmploymentHistoriesController < ApplicationController
     employment_history.location = params[:location]
     employment_history.position = params[:position]
     employment_history.role = params[:role]
-    employment_history.responsabilities = params[:responsabilities]
+    employment_history.responsibilities = params[:responsibilities]
     employment_history.period = params[:period]
     employment_history.save
     flash[:success] = "Job employment_history Updated"

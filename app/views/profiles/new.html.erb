@@ -4,7 +4,7 @@
 
       <h4>Create your Profile </h4>      
 
-      <%= form_tag "/profiles", method: :post do %>
+      <%= form_tag "/profiles", multipart: true, method: :post do %>
 
         <form>
           
@@ -13,6 +13,11 @@
           <div class="form-group">
             <label for="focusedInput">Overview</label>
             <textarea type="text" class="form-control" name="overview" id="focusedInput"  placeholder="Enter your overview"></textarea>
+          </div>
+
+          <div class="form-group">
+            <%= label_tag :profile_picture %>
+            <%= file_field_tag :profile_picture %>
           </div>
 
           <div class="checkbox">

@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  get 'activities/index'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   get "/" => "homepages#homepage"
@@ -27,6 +30,11 @@ Rails.application.routes.draw do
   get "/applications/new", to: 'applications#new'
   get "/applications/:id", to: 'applications#show'
   post "/applications", to: 'applications#create'
+  patch "/applications/:id", to: 'applications#update'
+
+
+  get "/activities", to:'activities#index'
+  delete "/clear", to: 'activities#destroy'
 
   resources :profiles
   resources :portfolios

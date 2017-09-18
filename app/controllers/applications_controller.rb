@@ -43,4 +43,25 @@ class ApplicationsController < ApplicationController
     end
 
   end
+
+  def edit
+    @application = Application.find_by(id: params[:id])
+  end
+
+  def update
+
+    @application = Application.find_by(id: params[:id])
+
+    @application.assign_attributes(hired: true)
+    
+
+    if @application.save
+      @application.create_activity key: 'hired', owner: current_user, recipient:@application.user
+      flash[:success] = "You hired a freelancer"
+      redirect_to "/dashboards/employer"
+
+    else
+      render :back
+    end
+  end
 end
