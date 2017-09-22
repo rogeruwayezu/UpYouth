@@ -11,6 +11,14 @@ class User < ApplicationRecord
    has_many :other_experiences
 
  
+   acts_as_messageable
 
+    def mailboxer_name
+      self.name
+    end
+
+    def mailboxer_email(object)
+      self.email
+    end
 
 end

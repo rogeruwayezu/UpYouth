@@ -25,6 +25,8 @@ gem 'jquery-rails', '~> 4.3.1'
 gem 'carrierwave', '~> 1.1'
 gem 'mini_magick', '~> 3.6.0'
 gem 'public_activity'
+# gem 'devise'
+gem 'mailboxer'
 # gem 'notifications'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
