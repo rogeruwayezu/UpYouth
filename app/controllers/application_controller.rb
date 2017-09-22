@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
   end
   helper_method :current_user
+  helper_method :mailbox
 
   def authenticate_user!
     flash.now[:danger] = "Access Accepted"
@@ -26,4 +27,13 @@ class ApplicationController < ActionController::Base
     end
 
   end
+
+    
+    private
+
+    def mailbox
+      @mailbox ||= current_user.mailbox
+    end
+
+    protected
 end

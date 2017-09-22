@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  get "/" => "homepages#homepage"
+  root to: "homepages#homepage"
 
   get "/posts", to: 'posts#index'
   get "/posts/new", to: 'posts#new'
@@ -35,6 +35,20 @@ Rails.application.routes.draw do
 
   get "/activities", to:'activities#index'
   delete "/clear", to: 'activities#destroy'
+
+   # mailbox folder routes
+  get "mailbox/inbox" => "mailbox#inbox", as: :mailbox_inbox
+  get "mailbox/sent" => "mailbox#sent", as: :mailbox_sent
+  get "mailbox/trash" => "mailbox#trash", as: :mailbox_trash
+
+     # conversations
+  resources :conversations do
+    member do
+      post :reply
+      post :trash
+      post :untrash
+    end
+  end
 
   resources :profiles
   resources :portfolios
