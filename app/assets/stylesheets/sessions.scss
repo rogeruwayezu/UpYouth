@@ -7,6 +7,7 @@
         display: -webkit-flex;
         display: flex;
         height: 100%;
+        font-family: 'Old Standard TT', serif;
     }
 
     #logbox {
@@ -25,10 +26,11 @@
         font-size: 175%;
         color: #757575;
         font-weight: 300;
+        font-family: 'Old Standard TT', serif;
     }
 
     h1, input {
-        font-family: 'Josefin Slab', serif;
+        font-family: 'Old Standard TT', serif;
     }
 
     .input {
@@ -39,6 +41,7 @@
         padding: 0 15px;
         border: none;
         border-bottom: 2px solid #ebebeb;
+        font-family: 'Old Standard TT', serif;
     }
     .input:focus {
         outline: none;
@@ -84,4 +87,5 @@
 
     #login{
         margin-left: 300px;
+        font-family: 'Old Standard TT', serif;
     }

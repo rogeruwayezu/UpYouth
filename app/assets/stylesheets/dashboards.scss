@@ -3,13 +3,13 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 table {
-    font-family: 'Josefin Slab', serif;
+    font-family: 'Old Standard TT', serif;
     border-collapse: collapse;
     width: 100%;
 }
 
 th, td {
-    font-family: 'Josefin Slab', serif;
+    font-family: 'Old Standard TT', serif;
     padding: 8px;
     text-align: left;
     border-bottom: 1px solid #ddd;
@@ -17,6 +17,7 @@ th, td {
 
 body {
     padding-top: 50px;
+    font-family: 'Old Standard TT', serif;
 }
 .dropdown.dropdown-lg .dropdown-menu {
     margin-top: -1px;

@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   #   render 'freelancer.html.erb'
   # end
 
+
   def create
 
     user = User.new(
@@ -34,4 +35,6 @@ class UsersController < ApplicationController
          redirect_to '/signup'
     end
   end
+
+  
 end
