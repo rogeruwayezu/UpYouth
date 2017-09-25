@@ -2,22 +2,27 @@
   <div class="container">
     <div class="row">
       <div class="col-md-8">
+
+
+
         <div class="jumbotron">    
           <p style="color: white; font-size: 20px">You can join UpYouth as:</p>
-          
+
+          <button type= "button" class="btn btn-primary btn-lg"><a href="/signup">Create Account</a></button>
+         <!--  
           <button type="button" class="btn btn-succcess" style="float: left;"><a href= "/signup">Employer</a></button>
 
-          <%= button_to "Freelancer", "/dashboards/freelancer", method: :get %>
+          <%= button_to "Freelancer", "/dashboards/freelancer", method: :get %> -->
 
         </div>
       </div>
     </div>
   </div>
   
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
       <div class="col-md-12">
-        <h2>Slider Search box</h2>
+        <h2>Search Jobs</h2>
           <div class="search">
             <input type="text" class="form-control input-sm" maxlength="64" placeholder="Search" />
    <button type="submit" class="src btn-primary btn-sm"><a href= "/posts">Find Jobs</a></button>

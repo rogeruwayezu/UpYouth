@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   post "post_categories", to: 'post_categories#create'
 
   get "/signup" => "users#new"
+  get "/employer" => "users#employer"
   get "/freelancer" => "users#freelancer"
   post "/users" => "users#create"
   get "/login" => "sessions#new"

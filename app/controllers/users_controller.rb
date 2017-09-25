@@ -1,13 +1,19 @@
 class UsersController < ApplicationController
+
   def new
     @roles = Role.all
-    render 'new.html.erb' 
+    render 'new.html.erb'
   end
+  
+  # def employer
+  #   @roles = Role.all
+  #   render 'employer.html.erb' 
+  # end
 
-  def freelancer
-    @roles = Role.all
-    render 'freelancer.html.erb'
-  end
+  # def freelancer
+  #   @roles = Role.all
+  #   render 'freelancer.html.erb'
+  # end
 
   def create
 

@@ -80,3 +80,14 @@
     .inputButton:focus {
         outline: none;
     }
+
+.form-control { margin-bottom: 10px; }
+
+#signup_employer {
+    margin-left: 1px;
+    float: left;
+}
+#signup_freelancer {
+    margin-right: 1px;
+    float: right;
+}

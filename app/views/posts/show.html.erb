@@ -1,21 +1,24 @@
  <div class="container">
    <div class="row"> 
-     <div class="col-md-8">      
+     <div class="col-md-12">      
 
       <h4><%= @post.title %></h4>
         <p><strong>Category</strong>:<%= @post.category.name %> </p>
-        <p><strong>Description</strong>:<%= @post.description %></p>
+        <p><strong>Description</strong>:<%= raw(@post.description) %></p>
         <p><strong>Job Budget</strong>:<%= @post.budget %></p>
         <p><strong>Required Skills</strong>:<%= @post.skills %></p>
         <p><strong>Deadline</strong>: <%= @post.deadline %></p>
 
 
-
-
+      <% if current_user %>
         <%= form_tag "/applications/new?post_id=#{@post.id} ", method: :get do %>
           <input type="hidden" name="post_id" class="form_control" value="<%= @post.id %>">
-         <%= button_to "Apply Now" %>
+        <%= button_to "Apply Now" %>
         <% end %>
+      <% else %>
+        <h4> You need to create an account in order to apply for this job</h4>
+      <% end %>
+
 
     </div>
   </div>
