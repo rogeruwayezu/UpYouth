@@ -17,10 +17,39 @@
               <% end %>
 
           <% else %>
-            <h3> My Applications </h3>
-              <% @applications.each do |application| %>
-                <h4><%= application.post.title %></h4>
-              <% end %>
+          <h3> My Applications </h3>
+          <table>
+            <tr>
+              <th>
+                <h6> Job Applied </h6>
+              </th>
+              <th>
+                <h6> Hired </h6>
+              </th>
+              <th>
+                <h6> Submit Work </h6>
+            </tr>
+            <% @applications.each do |application| %>
+            <tr>
+              <td>
+                <p><%= application.post.title %></p>
+              </td>
+              <td>
+                <p><%= application.hired %></p>
+              </td>
+              <td>
+                <% if application.hired == true %>
+                 <%= form_tag "/submissions/new?post_id=#{application.post.id} ", method: :get do %>
+                 <input type="hidden" name="post_id"  value="<%= application.post.id %>">
+                 <%= button_to "Submit" %>
+                 <% end %>
+                <% end %>
+              </td>
+               
+            </tr>
+
+             <% end %> 
+          </table>
           <%end%>
 
        <% end %>

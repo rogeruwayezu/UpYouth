@@ -1,0 +1,6 @@
+<h4> Bite ROger </h4>
+<% @submissions.each do|submission| %>
+   <%= submission.title %>
+   <%= submission.description %>
+   <iframe src="<%= submission.file_url %>" width="800" height="700" style ="border: none;"></iframe>
+<% end %>

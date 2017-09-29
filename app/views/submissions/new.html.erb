@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+
+      <h4>Submit </h4>      
+
+      <%= form_tag "/submissions", multipart: true, method: :post do %>
+
+        <form>
+          
+          <input type="hidden" name="user_id"  value="<%= current_user.id %>">
+          <input type="hidden" name="post_id"  value="<%= @post.id %>">
+
+          <div class="form-group">
+            <label for="focusedInput">Title of the work</label>
+            <input type="text" class="form-control" name="title" id="focusedInput"  placeholder="Enter the title">
+          </div>
+
+          <input type="hidden" name="user_id"  value="<%= current_user.id %>">
+          <div class="form-group">
+            <label for="focusedInput">Description</label>
+            <input type="text" class="form-control" name="description" id="focusedInput"  placeholder="Enter the description">
+          </div>
+
+          
+
+          <div class="form-group">
+            <%= label_tag :file %>
+            <%= file_field_tag :file %>
+          </div>
+
+          <div class="checkbox">
+            <input type="submit" name="Submit">
+          </div>
+        </form>
+
+      <% end %>
+    </div>
+  </div>
+</div>

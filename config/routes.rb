@@ -60,6 +60,7 @@ Rails.application.routes.draw do
   resources :educations
   resources :employment_histories
   resources :other_experiences
+  resources :submissions
 
   
 

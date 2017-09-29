@@ -9,6 +9,7 @@ class User < ApplicationRecord
    has_many :educations
    has_many :employment_histories
    has_many :other_experiences
+   has_many :submissions
 
  
    acts_as_messageable

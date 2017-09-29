@@ -11,10 +11,10 @@
         Applications 
       </th>
       <th>
-        Setting
+        Submission
       </th>
       <th>
-        Hiring
+        Setting
       </th>
 
     </tr>
@@ -23,7 +23,7 @@
         <td> <%= link_to post.title, "/posts/#{post.id}" %> </td>
         <td> <a href= "/applications"><% @count = @applications.count %>
         <%= @count %> (<%= @count.to_i - 1%> new)</a></td>
-
+        <td> <%= link_to "Works Submitted","/submissions" %></td>
         <td> <%= link_to '<i class="glyphicon glyphicon-cog"></i>'.html_safe,"/posts/#{post.id}/edit" %>
         </a>
         </td>
