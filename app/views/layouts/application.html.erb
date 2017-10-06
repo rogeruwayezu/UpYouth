@@ -15,19 +15,12 @@
     <!-- Custom Fonts -->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="css/agency.min.css" rel="stylesheet">
-    <title>Bootstrap Example</title>
-   <meta charset="utf-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
 
 
   </head>
 <body>
-
-
- <nav class="navbar navbar-inverse">
+ <nav class="navbar navbar-positive ">
    <div class="container-fluid">
      <div class="navbar-header">
        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -35,62 +28,60 @@
          <span class="icon-bar"></span>
          <span class="icon-bar"></span>                        
        </button>
-       <a class="navbar-brand" href="#">WebSiteName</a>
+       <a class="navbar-brand" href="/">UpYouth</a>
      </div>
+
      <div class="collapse navbar-collapse" id="myNavbar">
-       <ul class="nav navbar-nav">
-         <li class="active"><a href="#">Home</a></li>
-         <li class="dropdown">
-           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
-           <ul class="dropdown-menu">
-             <li><a href="#">Page 1-1</a></li>
-             <li><a href="#">Page 1-2</a></li>
-             <li><a href="#">Page 1-3</a></li>
-           </ul>
-         </li>
-         <li><a href="#">Page 2</a></li>
-         <li><a href="#">Page 3</a></li>
+       <ul class="nav navbar-nav navbar-center">
+        <div class="searchbar-center">
+          <form class="w3-bar-item " role="search">
+          <div class="input-group" id="adv-search">
+              <input type="text" class="form-control" placeholder="Search for jobs" />
+              <div class="input-group-btn">
+                  <div class="btn-group" role="group">
+                      <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                  </div>
+              </div>
+          </div>
+          </form>
+        </div>
+         
        </ul>
-       <ul class="nav navbar-nav navbar-right">
-         <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-         <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-       </ul>
+       <% if current_user %>
+         
+          <ul class="nav navbar-nav navbar-right">
+
+              <li><a href="/mailbox/inbox">
+                <span class="glyphicon glyphicon-envelope"></span> <%=unread_messages_count%>
+              </a></li>
+
+              <li><a href="/activities">
+                 <span class="glyphicon glyphicon-bell"></span><%=PublicActivity::Activity.where(recipient_id: current_user.id, recipient_type: "User").count%>
+                </a></li>
+
+      
+
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle profile-image" data-toggle="dropdown">
+                    <img src="<%= current_user.profile.profile_picture_url %>" class="img-circle special-img"><%= current_user.full_name %><b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#"><i class="fa fa-cog"></i> Profile </a></li>
+                                <li class="divider"></li>
+                                <li><a href="/logout"><i class="fa fa-sign-out"></i> Logout </a></li>
+                            </ul>
+              </li>
+              </ul>
+        <% else %>
+        
+          <ul class="nav navbar-nav navbar-right">
+            <li><a class="navbar-brand" href="/signup">Join Us</a>
+            <li><a href="/login"><span class="glyphicon glyphicon-user"></span> Login</a></li> 
+          </ul>
+      
+      <% end %>
      </div>
    </div>
  </nav>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -100,9 +91,6 @@
       </div>
   <% end %>
 
-
-  
-    <div class="container-fluid">
     <%= yield %>
   </body>
 </html>
