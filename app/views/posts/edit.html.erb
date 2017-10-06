@@ -1,15 +1,12 @@
-<div class="container">
+<h3 style="text-align: center"> Setting </h3>
+<div class="container fluid">
   <div class="row">
-    <h3 style="text-align: center"> Setting </h3>
-
-    
+    <div class="col-md-2">
     <%= button_to "Delete", "/posts/#{@post.id}", class: "btn btn-danger", method: :delete, data: { confirm: 'are you sure?' } %>
+    </div>
     
 
     <div class="col-md-10">
-
-        
-
         <h5> Edit </h5> 
         <%= form_tag "/posts/#{@post.id}", method: :patch do%>
 
@@ -34,7 +31,7 @@
           
           <div class="form-group">
             <label>Job Description</label>
-            <textarea name="description"><%= @post.description%></textarea>
+            <textarea name="description"><%= raw(@post.description)%></textarea>
               <script>
                   CKEDITOR.replace( 'description' );
               </script>

@@ -1,10 +1,13 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-2">
+    </div>
+
+    <div class="col-md-8">
       <% if !@applications.blank? %>
         
           <% if current_user && current_user.role.id == 1 %>
-            <h3>Submitted Applications</h3>
+            <h5>Submitted Applications</h5>
               <% @count = @applications.count %>
                 <h2><%= @count %> (<%= @count.to_i - 1%> new) </h2> 
               <% @applications.each do |application| %>
@@ -17,7 +20,7 @@
               <% end %>
 
           <% else %>
-          <h3> My Applications </h3>
+          <h5> My Applications </h5>
           <table>
             <tr>
               <th>
@@ -43,6 +46,8 @@
                  <input type="hidden" name="post_id"  value="<%= application.post.id %>">
                  <%= button_to "Submit" %>
                  <% end %>
+                <% else %>
+                  <p> Not yet</p>
                 <% end %>
               </td>
                

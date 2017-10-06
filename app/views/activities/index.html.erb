@@ -1,5 +1,14 @@
-<% @activities.each do |activity| %>
-  <%= activity.owner.first_name %>
-  <%= activity.key%>
-<% end %>
-<%= link_to "clear", "/clear", method: :delete, style: "color: blue;"%>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2">
+    </div>
+
+    <div class="col-md-6">
+      <% @activities.each do |activity| %>
+        <%= activity.owner.first_name %>
+        <%= activity.key%>
+      <% end %>
+      <%= link_to "clear", "/clear", method: :delete, style: "color: blue;"%>
+    </div>
+  </div>
+</div>

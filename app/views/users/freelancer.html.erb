@@ -1,0 +1,35 @@
+<body class="signup"> 
+  <div class="container-fluid" style="padding-right: 450px;">
+    <div class="row">       
+
+        <div class="col-md-6" id="signup_freelancer">
+           <%= form_tag '/users', method: :post do  %>
+                <legend style="background-color: white"> Sign up as a Freelancer</legend>
+                <form action="#" method="post" class="form" role="form">
+                <div class="row">
+                    <div class="col-xs-6 col-md-6">
+                        <input class="form-control" name="first_name" placeholder="First Name" type="text"
+                            required autofocus />
+                    </div>
+                    <div class="col-xs-6 col-md-6">
+                        <input class="form-control" name="last_name" placeholder="Last Name" type="text" required />
+                    </div>
+                </div>
+                <div>
+                  <input type="hidden" name="role_id" value="<%= @roles.second.id%>">     
+                </div>
+
+                <input class="form-control" name="email" placeholder="Your Email" type="email" />
+                <input class="form-control" name="password" placeholder="New Password" type="password" />
+                <input class="form-control" name="password_confirmation" placeholder="Re-enter Password" type="password" />
+                <br />
+                <br />
+                <button class="btn btn-lg btn-primary btn-block" type="submit">
+                    Sign up</button>
+                </form>
+            <% end %>
+            
+        </div>
+    </div>
+  </div>
+</body>

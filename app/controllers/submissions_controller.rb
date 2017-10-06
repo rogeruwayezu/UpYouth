@@ -17,7 +17,7 @@ class SubmissionsController < ApplicationController
       redirect_to "/dashboards/freelancer"
     else
       flash[:warning] = "Ooops! Your work isn't submitted"
-      render :new
+      redirect_to "submissions/new"
     end
   end
 

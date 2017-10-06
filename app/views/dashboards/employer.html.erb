@@ -1,23 +1,25 @@
-<div class="container">
-  <div class="row"> 
-  <button type="submit" class="btn btn-success"><%= link_to "Post A New Job", "/posts/new" %></button>
-  <div class="col-md-8">
-  <table>
-    <tr>
-      <th>
-        Job Title
-      </th>
-      <th>
-        Applications 
-      </th>
-      <th>
-        Submission
-      </th>
-      <th>
-        Setting
-      </th>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2">
+      <button type="submit" class="btn btn-success"><%= link_to "Post A New Job", "/posts/new" %></button>
+    </div>
+    <div class="col-md-8">
+      <table>
+        <tr>
+          <th>
+            Job Title
+          </th>
+          <th>
+            Applications 
+          </th>
+          <th>
+            Submission
+          </th>
+          <th>
+            Setting
+          </th>
 
-    </tr>
+        </tr>
     <% @posts.each do |post| %>
       <tr>
         <td> <%= link_to post.title, "/posts/#{post.id}" %> </td>

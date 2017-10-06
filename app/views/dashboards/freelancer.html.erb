@@ -1,8 +1,8 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
     <div class="col-md-12">
-            <div class="input-group" id="adv-search">
-                <input type="text" class="form-control" placeholder="Search for snippets" />
+            <!-- <div class="input-group" id="adv-search">
+                <input type="text" class="form-control" placeholder="Search for jobs" />
                 <div class="input-group-btn">
                     <div class="btn-group" role="group">
                         <div class="dropdown dropdown-lg">
@@ -12,15 +12,15 @@
                                   <div class="form-group">
                                     <label for="filter">Filter by</label>
                                     <select class="form-control">
-                                        <option value="0" selected>All Snippets</option>
+                                        <option value="0" selected>All Categories</option>
                                         <option value="1">Featured</option>
                                         <option value="2">Most popular</option>
                                         <option value="3">Top rated</option>
-                                        <option value="4">Most commented</option>
+                                        <option value="4">Most applied</option>
                                     </select>
                                   </div>
                                   <div class="form-group">
-                                    <label for="contain">Author</label>
+                                    <label for="contain">Position</label>
                                     <input class="form-control" type="text" />
                                   </div>
                                   <div class="form-group">
@@ -36,7 +36,7 @@
                 </div>
             </div>
     </div>
-
+ -->
     <div class="col-md-12">
     <br>
     </div>
@@ -48,29 +48,16 @@
       <div class="col-md-6">
         <h4>Jobs Available</h4>       
             <% @posts.each do |post| %>
-              <div class="jumbotron jumbotron-special">
-                <p><%= link_to post.title, "/posts/#{post.id}"%></p>
-                <p><%= post.description%></p>
+              <div class="jumbotron" style="text-align: justify;">
+                <h5><%= link_to post.title, "/posts/#{post.id}"%></h5>
+                <p><%= (raw post.description.truncate(200)) %>
+                <%= link_to "| Read More", "/posts/#{post.id}" %></p>
               </div>
               <br>
             <% end %>
       </div>
       <br>
       <div class="col-md-3">
-        <% if !@profile.blank? %>
-
-              <%= link_to '<i class="glyphicon glyphicon-eye-open"></i> View Profile'.html_safe,"/profiles/#{@profile.id}" %>
-
-              <% else%>
-
-              <a href="/profiles/new">
-              <button type="button" class="btn btn-default btn-sm">
-              <span class="glyphicon glyphicon-plus-sign"></span>Create Profile
-              </button> 
-            </a>
-              
-            <% end %>
-
             <%= link_to "My Applications", "/applications", method: :get %> 
       </div>
     </div>

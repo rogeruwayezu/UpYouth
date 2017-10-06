@@ -12,13 +12,16 @@ h1,h2,h3,h4,h5,h6 {
   }
 
 
-.choose {
-  padding-top: 20%;
-  width: 30%;
-  background-image: url("desktop.jpg");
-  background-size: 100%;
 
-}
+
+// #choose {
+//   padding-top: 20%;
+//   width: 30%;
+  
+//   background-width: 50%;
+//   background-height: 40%;
+
+// }
 
 #search {
     float: center;
@@ -56,11 +59,70 @@ h1,h2,h3,h4,h5,h6 {
             margin-left: 0px;
         }
 
-.src {
-    height: 30px;
-    position: absolute;
-    right: 0;
-    top: 5px;
-    border-radius:1px;
+// .background img {
+//     width: 2000px;
+//     height: 500px;
+// }
+
+header.masthead {
+    background: url('desktop.jpg') no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
 }
+
+@media (min-width: 1000px) {
+    body {
+        padding-top: 56px;
+        padding-right:180px;
+     
+        width: 1476px;
+    }
+}
+
+
+header.masthead > .overlay {
+    padding: 5rem 0;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.1);
+
+}
+
+@media (min-width: 1000px) {
+    header.masthead > .overlay {
+        padding: 10rem 0;
+        margin: -1.3rem 0;
+
+    }
+}
+
+section {
+  padding: 100px 0;
+}
+section h2.section-heading {
+  font-size: 40px;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+section h3.section-subheading {
+  font-size: 16px;
+  font-family: 'Old Standard TT', serif;
+  text-transform: none;
+  font-style: italic;
+  font-weight: 400;
+  margin-bottom: 75px;
+}
+@media (min-width: 768px) {
+  section {
+    padding: 70px 0;
+  }
+}
+.service-heading {
+  margin: 15px 0;
+  text-transform: none;
+}
+
+
+
 

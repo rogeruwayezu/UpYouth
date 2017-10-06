@@ -1,17 +1,17 @@
 <div class="media">
   <div class="media-left">
     <a href="#">
-      <img class="media-object" src="<%= conversation.originator.profile.profile_picture_url%>">
+      <img class="media-object" id="pro_picture" src="<%= conversation.originator.profile.profile_picture_url%>">
     </a>
   </div>
   <div class="media-body">
-    <h4 class="media-heading">
-      <%= conversation.originator.full_name %> <br>
+    <h5 class="media-heading">
+      <p><%= conversation.originator.full_name %> <br>
       <small><b>Subject: </b><%= conversation.subject %></small><br>
-      <small><b>Date: </b><%=  conversation.messages.last.created_at.strftime("%A, %b %d, %Y at %I:%M%p") %></small>
-    </h4>
-    <%= truncate conversation.messages.last.body, length: 145 %>
-    <%= link_to "||View", conversation_path(conversation)  %>
+      <small><b>Date: </b><%=  conversation.messages.last.created_at.strftime("%A, %b %d, %Y at %I:%M%p") %></small></p>
+    </h5>
+    <p><%= truncate conversation.messages.last.body, length: 145 %>
+    <%= link_to "||View", conversation_path(conversation)  %></p>
   </div>
 
   <div class="btn-group-vertical pull-right">

@@ -1,6 +1,27 @@
-<h4> Bite ROger </h4>
-<% @submissions.each do|submission| %>
-   <%= submission.title %>
-   <%= submission.description %>
-   <iframe src="<%= submission.file_url %>" width="800" height="700" style ="border: none;"></iframe>
+<table>
+  <tr>
+    <th>
+      <p> <strong>Title</strong> </p>
+    </th>
+    <th>
+      <p> <strong>Short Description</strong> </p>
+    </th>
+    <th>
+      <p> <strong>Work File</strong> </p>
+    </th>
+  </tr>
+ <% @submissions.each do|submission| %>
+
+  <tr>
+    <td>
+      <p><%= submission.title %></p>
+    </td>
+    <td>
+      <%= submission.description %>
+    </td>
+    <td>
+    <%= link_to "Download Work", submission.file_url %>
+    </td>
+    </tr>
 <% end %>
+</table>

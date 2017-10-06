@@ -1,83 +1,22 @@
-<body class="signup">
-  <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-5" id="signup_employer">
-            <%= form_tag '/users', method: :post do  %>
-            <legend style="background-color: white;"> Sign up as an Employer</legend>
-            <form action="#" method="post" class="form" role="form">
-            <div class="row">
-                <div class="col-xs-6 col-md-6">
-                    <input class="form-control" name="first_name" placeholder="First Name" type="text"
-                        required autofocus />
-                </div>
-                <div class="col-xs-6 col-md-6">
-                    <input class="form-control" name="last_name" placeholder="Last Name" type="text" required />
-                </div>
-            </div>
-            <div>
-            <input type="hidden" name="role_id" value="<%= @roles.first.id%>">     
-            </div>
-
-            <input class="form-control" name="email" placeholder="Your Email" type="email" />
-            <input class="form-control" name="password" placeholder="New Password" type="password" />
-            <input class="form-control" name="password_confirmation" placeholder="Re-enter Password" type="password" />
-            <div style="background-color: white;">
-            <label class="radio-inline">
-                <input type="radio" name="sex" id="inlineCheckbox1" value="male" />
-                Male
-            </label>
-            <label class="radio-inline">
-                <input type="radio" name="sex" id="inlineCheckbox2" value="female" />
-                Female
-            </label></div>
-            <br />
-            <br />
-            <button class="btn btn-lg btn-primary btn-block" type="submit">
-                Sign up</button>
-            </form>
-            <% end %>
-          
+<div class="container-fluid" id="create">
+  <div class="row">
+    <div class="col-sm-5 w3-border w3-margin" style="text-align: center;background-color: lightgrey;">
+      <div class="card">
+        <div class="card-block">
+          <h3 class="card-title">Special title treatment</h3>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="/employer" class="btn btn-primary w3-margin">Hire Freelancer</a>
         </div>
-
-
-
-        <div class="col-md-5" id="signup_freelancer">
-           <%= form_tag '/users', method: :post do  %>
-                <legend style="background-color: white"> Sign up as a Freelancer</legend>
-                <form action="#" method="post" class="form" role="form">
-                <div class="row">
-                    <div class="col-xs-6 col-md-6">
-                        <input class="form-control" name="first_name" placeholder="First Name" type="text"
-                            required autofocus />
-                    </div>
-                    <div class="col-xs-6 col-md-6">
-                        <input class="form-control" name="last_name" placeholder="Last Name" type="text" required />
-                    </div>
-                </div>
-                <div>
-                  <input type="hidden" name="role_id" value="<%= @roles.second.id%>">     
-                </div>
-
-                <input class="form-control" name="email" placeholder="Your Email" type="email" />
-                <input class="form-control" name="password" placeholder="New Password" type="password" />
-                <input class="form-control" name="password_confirmation" placeholder="Re-enter Password" type="password" />
-                <div style="background-color: white">
-                <label class="radio-inline">
-                    <input type="radio" name="sex" id="inlineCheckbox1" value="male" />
-                    Male
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" name="sex" id="inlineCheckbox2" value="female" />
-                    Female
-                </label></div>
-                <br />
-                <br />
-                <button class="btn btn-lg btn-primary btn-block" type="submit">
-                    Sign up</button>
-                </form>
-            <% end %>
-            
+      </div>
+    </div>
+    <div class="col-sm-5 w3-border w3-margin" style="text-align: center;background-color: lightgrey;">
+      <div class="card">
+        <div class="card-block">
+          <h3 class="card-title">Special title treatment</h3>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="/freelancer" class="btn btn-primary w3-margin">Find Work</a>
         </div>
+      </div>
     </div>
   </div>
-</body>
+</div>
