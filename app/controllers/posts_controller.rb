@@ -54,4 +54,13 @@ class PostsController < ApplicationController
     redirect_to "/dashboards/employer"
   end
 
+  def search
+    search_query = params[:search_input]
+    @posts = Post.where("title LIKE ? OR skills LIKE ?", "%#{search_query}%", "%#{search_query}%")
+    if @posts.empty?
+      flash[:info] = "No post found in search"
+    end
+    render :index
+  end
+
 end

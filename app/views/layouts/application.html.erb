@@ -30,22 +30,27 @@
        </button>
        <a class="navbar-brand" href="/">UpYouth</a>
      </div>
-
-     <div class="collapse navbar-collapse" id="myNavbar">
-       <ul class="nav navbar-nav navbar-center">
-        <div class="searchbar-center">
-          <form class="w3-bar-item " role="search">
-          <div class="input-group" id="adv-search">
-              <input type="text" class="form-control" placeholder="Search for jobs" />
-              <div class="input-group-btn">
-                  <div class="btn-group" role="group">
-                      <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-                  </div>
-              </div>
-          </div>
-          </form>
-        </div>
+     
+     
          
+        
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-center">
+       <div class="searchbar-center">
+         <%= form_tag "/posts/search", class: "navbar-form navbar-left", method: :post do %>
+         <form class="w3-bar-item " role="search">
+         <div class="input-group" id="adv-search">
+             <input type="text" class="form-control" placeholder="Search" name="search_input">
+             <div class="input-group-btn">
+                 <div class="btn-group" role="group">
+                   <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>  
+                 </div>
+             </div>
+         </div>
+         </form>
+         <% end %>
+       </div>
+
        </ul>
        <% if current_user %>
          
