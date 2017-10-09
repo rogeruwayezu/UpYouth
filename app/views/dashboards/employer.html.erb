@@ -1,40 +1,66 @@
-<div class="container-fluid">
+<div class="container-fluid" style="padding-top: 50px; padding-left: 200px;">
   <div class="row">
-    <div class="col-md-2">
-      <button type="submit" class="btn btn-success"><%= link_to "Post A New Job", "/posts/new" %></button>
-    </div>
-    <div class="col-md-8">
-      <table>
-        <tr>
-          <th>
-            Job Title
-          </th>
-          <th>
-            Applications 
-          </th>
-          <th>
-            Submission
-          </th>
-          <th>
-            Setting
-          </th>
 
-        </tr>
-    <% @posts.each do |post| %>
-      <tr>
-        <td> <%= link_to post.title, "/posts/#{post.id}" %> </td>
-        <td> <a href= "/applications"><% @count = @applications.count %>
-        <%= @count %> (<%= @count.to_i - 1%> new)</a></td>
-        <td> <%= link_to "Works Submitted","/submissions" %></td>
-        <td> <%= link_to '<i class="glyphicon glyphicon-cog"></i>'.html_safe,"/posts/#{post.id}/edit" %>
-        </a>
-        </td>
-        <td>
-        
-        </td>
-      </tr>
-    <% end %>
-  </table>
+    <div class="w3-container">
+      <div class="w3-card-4" style="width:80%;float: center;">
+        <header class="w3-container " style="background-color: teal;">
+          <h2 style="text-align: left;color: white;">Posts <button type="submit" class="btn btn-default" style="float: right;"><%= link_to "Post A New Job", "/posts/new" %></button></h2>
+
+        </header>
+
+      <div class="w3-container">
+       <% @posts.each do |post| %>
+        <h6 style="text-align:left;""><%= link_to post.title, "/posts/#{post.id}" %>
+        <%= link_to '<i class="glyphicon glyphicon-cog" style="float: right;"></i>'.html_safe,"/posts/#{post.id}/edit" %></h6>
+
+      <% end %>
+      </div>
+
+
+      
+    </div>
   </div>
+<br>
+    <div class="w3-container">
+      <div class="w3-card-4" style="width:80%;">
+        <header class="w3-container" style="background-color: teal;">
+          <h2 style="text-align: left;color: white;">Applications</h2>
+
+        </header>
+
+        <div class="w3-container">
+        <% @posts.each do |post| %>
+        <h6 style="text-align:left;""><%= link_to post.title, "/posts/#{post.id}" %><a href= "/applications" style="float: right;"><% @count = @applications.count %>
+          <%= @count %> (<%= @count.to_i - 1%> new)Applications</a>
+        </h6>
+        <% end %>
+        </div> 
+      </div>
+    </div>
+<br>
+    <div class="w3-container">
+      <div class="w3-card-4" style="width:80%;">
+        <header class="w3-container" style="background-color: teal;">
+          <h2 style="text-align: left; color: white;">Submissions</h2>
+
+        </header>
+
+        <div class="w3-container">
+          <% @posts.each do |post| %>
+            <h5 style="text-align:left;""><%= post.title %></h5>
+              <strong>Submission Title</strong> <ol>
+              <% post.submissions.each do |submission| %>
+                
+                  <li>
+                    <h7><%= link_to submission.title, "/submissions/#{submission.id}?submission_id=#{submission.id}" %></h7>
+                  </li>
+              <% end %>
+              </ol>
+          <% end %>
+        </div> 
+      </div>
+    </div>
   </div>
 </div>
+</div>
+

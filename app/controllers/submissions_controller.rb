@@ -2,6 +2,7 @@ class SubmissionsController < ApplicationController
   def index
     @submissions = Submission.all
     @posts = Post.all
+    @post = Post.find_by(id: params[:post_id])
   end
 
   def new
@@ -22,6 +23,7 @@ class SubmissionsController < ApplicationController
   end
 
   def show
+    @submission = Submission.find_by(id: params[:submission_id])
   end
 
   def update

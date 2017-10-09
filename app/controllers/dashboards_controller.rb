@@ -9,9 +9,10 @@ class DashboardsController < ApplicationController
     @post = Post.find_by(id: params[:id])
     @posts = current_user.posts
     @posts.each do |post|
-      @applications = post.applications
-      
+      @applications = post.applications 
+      @submissions = post.submissions   
     end
+
     render 'employer.html.erb' 
   end
 end
