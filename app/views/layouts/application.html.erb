@@ -15,9 +15,8 @@
     <!-- Custom Fonts -->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="css/agency.min.css" rel="stylesheet">
+
     
-
-
   </head>
 <body>
  <nav class="navbar navbar-positive ">
@@ -31,21 +30,17 @@
        <a class="navbar-brand" href="/">UpYouth</a>
      </div>
      
-     
-         
-        
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-center">
        <div class="searchbar-center">
          <%= form_tag "/posts/search", class: "navbar-form navbar-left", method: :post do %>
          <form class="w3-bar-item " role="search">
          <div class="input-group" id="adv-search">
-             <input type="text" class="form-control" placeholder="Search" name="search_input">
+             <input type="text" class="form-control" placeholder="Search for jobs..." name="search_input">
              <div class="input-group-btn">
-                 <div class="btn-group" role="group">
+             <div class="btn-group" role="group">
                    <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>  
                  </div>
-             </div>
          </div>
          </form>
          <% end %>
@@ -55,7 +50,7 @@
        <% if current_user %>
          
           <ul class="nav navbar-nav navbar-right">
-
+              <li><a class="navbar-brand" href="/posts">Home</a>
               <li><a href="/mailbox/inbox">
                 <span class="glyphicon glyphicon-envelope"></span> <%=unread_messages_count%>
               </a></li>
@@ -96,8 +91,9 @@
       <div class="text-center <%= flash_class(key) %>"><%= value %>
       </div>
   <% end %>
-
+  
     <%= yield %>
+ 
   </body>
 </html>
 
