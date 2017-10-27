@@ -26,6 +26,8 @@ Rails.application.routes.draw do
   get "/freelancer_2" => "users#freelancer_2"
   get "/users" => "users#index"
   post "/users" => "users#create"
+  get "/users/:id/edit", to: 'users#edit'
+  patch "/users/:id", to: 'users#update'
   get "/login" => "sessions#new"
   post "/login" => "sessions#create"
   get "/logout" => "sessions#destroy"
@@ -60,6 +62,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :skills
   resources :profiles
   resources :portfolios
   resources :educations

@@ -1,0 +1,29 @@
+<div class="container-fluid" style="padding-top: 45px;">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <%= form_tag "/users/#{current_user.id}", multipart: true, method: :patch do%>
+
+        <h7> Select your Skills</h7>
+        <br>
+        <select class="js-example-basic-multiple" placeholder="Select your skills" name="skill_ids" multiple="multiple" style="width: 500px;">
+          <% @skills.each do |skill| %>
+          <option value="<%= skill.id %>"><%= skill.name %></option>
+        <% end %>
+        </select>
+        <br>
+        <h7> Select the categories you are interested in</h7>
+        <select class="js-example-basic-multiple" placeholder="Select your skills" name="bodies[]category_id" multiple="multiple" style="width: 500px;">
+          <option value="">Select your categories</option>
+          <% @categories.each do |category| %>
+          <option value="<%= category.id %>"><%= category.name %></option>
+        <% end %>
+        </select>
+        <div class="checkbox">
+          <input type="submit" class="btn btn-primary active" name="Submit">
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+

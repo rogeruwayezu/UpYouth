@@ -12,10 +12,18 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery 
+//= require jquery
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
+//=
+
+$(function() { $("#profile_skill_tokens").tokenInput("/skills.json", { 
+  crossDomain: false, 
+  prePopulate: $("#profile_skill_tokens").data("pre"), 
+  theme: "facebook" 
+}); 
+});
 
 function openNav() {
     document.getElementById("mySidenav").style.width = "70%";

@@ -1,5 +1,5 @@
 class Skill < ApplicationRecord
 
-  belongs_to :user
-  belongs_to :post
+  belongs_to :post, optional:true
+  has_and_belongs_to_many :profiles
 end

@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_secure_password
+
    
    has_many :posts
    belongs_to :role
@@ -10,10 +11,14 @@ class User < ApplicationRecord
    has_many :employment_histories
    has_many :other_experiences
    has_many :submissions
-   has_many :skills
+
+
 
  
    acts_as_messageable
+
+
+
 
     def mailboxer_name
       self.name
