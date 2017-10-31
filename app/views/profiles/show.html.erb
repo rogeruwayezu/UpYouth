@@ -18,7 +18,17 @@
           <p><%= @profile.overview %></p>
 
         </div>
-<br>
+      
+<br>   
+        <div class="jumbotron">
+         <h4>Skills</h4>
+           <% @userskills.each do |userskill| %>
+             <li><%= userskill %></li>
+           <% end %>
+        </div>
+     
+        <br>
+
         <div class="jumbotron">
           <h4>Portfolio
           <a href="/portfolios/new">

@@ -8,13 +8,21 @@ class ProfilesController < ApplicationController
     @profile = current_user.profile
     @portfolios = current_user.portfolios
     @employment_histories = current_user.employment_histories
-
+    @skills = Skill.all
+    @userskills = []
+    @skills.each do |skill|
+      skill.profiles.each do |profile|
+        if profile.user_id == current_user.id
+          @userskills << skill.name
+        end
+      end
+    end
   
   end
 
   def create
     @profile = Profile.new(profile_params)
- 
+
     respond_to do |format|
       if @profile.save
         format.html { redirect_to @profile, notice: 'profile was successfully created.' }
