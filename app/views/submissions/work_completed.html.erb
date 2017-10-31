@@ -1,0 +1,40 @@
+<div class="container-fluid" style="padding-top: 45px;">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <table>
+        <tr>
+          <th>
+            <p> <strong>Title</strong> </p>
+          </th>
+          <th>
+            <p> <strong>Short Description</strong> </p>
+          </th>
+          <th>
+            <p> <strong>Work File</strong> </p>
+          </th>
+          <th>
+            <p> <strong>Complete</strong> </p>
+          </th>
+        </tr>
+       <% @submissions.each do|submission| %>
+
+        <tr>
+          <td>
+            <p><%= submission.title %></p>
+          </td>
+          <td>
+            <p><%= submission.description %></p>
+          </td>
+          <td>
+          <p><%= link_to "Download Work", submission.file_url %></p>
+          </td>
+          <td>
+            <p><strong>Completed</strong></p>
+          </td>
+          </tr>
+      <% end %>
+      </table>
+    </div>
+  </div>
+</div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170929100607) do
+ActiveRecord::Schema.define(version: 20171027141426) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -169,11 +169,11 @@ ActiveRecord::Schema.define(version: 20170929100607) do
     t.text     "description"
     t.integer  "budget"
     t.integer  "user_id"
-    t.text     "skills"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "category_id"
     t.date     "deadline"
+    t.integer  "skill_id"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -184,7 +184,18 @@ ActiveRecord::Schema.define(version: 20170929100607) do
     t.string   "profile_picture"
   end
 
+  create_table "profiles_skills", id: false, force: :cascade do |t|
+    t.integer "skill_id",   null: false
+    t.integer "profile_id", null: false
+  end
+
   create_table "roles", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "skills", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

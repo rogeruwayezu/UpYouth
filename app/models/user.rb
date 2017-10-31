@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_secure_password
+
    
    has_many :posts
    belongs_to :role
@@ -11,8 +12,13 @@ class User < ApplicationRecord
    has_many :other_experiences
    has_many :submissions
 
+
+
  
    acts_as_messageable
+
+
+
 
     def mailboxer_name
       self.name
@@ -25,5 +31,13 @@ class User < ApplicationRecord
     def full_name
       full_name = first_name + " " + last_name
     end
+
+    def self.search(search)
+    if search
+      find(:all, :conditions => ['first_name LIKE ?', "%#{search}%"])
+    else
+      find(:all)
+    end
+  end
 
 end

@@ -1,3 +1,4 @@
+
 <div class="container-fluid">
    <div class="row">
 
@@ -11,6 +12,7 @@
 
      <div class="col-md-6">      
         <div class="jumbotron">
+        <p><%= current_user.skill_id %></p>
           <h4>Overview 
           <%= link_to '<i class="glyphicon glyphicon-pencil"></i>'.html_safe,"/profiles/#{@profile.id}/edit" %>
           </h4>

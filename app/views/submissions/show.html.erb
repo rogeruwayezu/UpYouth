@@ -1,2 +1,39 @@
-<h1>Submissions#show</h1>
-<p>Find me in app/views/submissions/show.html.erb</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-6">
+      <table>
+        <tr>
+          <th>
+            <p> <strong>Freelancer</strong> </p>
+          </th>
+          <th>
+            <p> <strong>Title</strong> </p>
+          </th>
+          <th>
+            <p> <strong>Short Description</strong> </p>
+          </th>
+          <th>
+            <p> <strong>Work File</strong> </p>
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <p><%= @submission.user.full_name %></p>
+          </td>
+          <td>
+            <p><%= @submission.title %></p>
+          </td>
+          <td>
+            <%= @submission.description %>
+          </td>
+          <td>
+          <%= link_to "Download Work", @submission.file_url %>
+          </td>
+          </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+

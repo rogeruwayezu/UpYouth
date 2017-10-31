@@ -1,47 +1,5 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-12">
-            <!-- <div class="input-group" id="adv-search">
-                <input type="text" class="form-control" placeholder="Search for jobs" />
-                <div class="input-group-btn">
-                    <div class="btn-group" role="group">
-                        <div class="dropdown dropdown-lg">
-                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
-                            <div class="dropdown-menu dropdown-menu-right" role="menu">
-                                <form class="form-horizontal" role="form">
-                                  <div class="form-group">
-                                    <label for="filter">Filter by</label>
-                                    <select class="form-control">
-                                        <option value="0" selected>All Categories</option>
-                                        <option value="1">Featured</option>
-                                        <option value="2">Most popular</option>
-                                        <option value="3">Top rated</option>
-                                        <option value="4">Most applied</option>
-                                    </select>
-                                  </div>
-                                  <div class="form-group">
-                                    <label for="contain">Position</label>
-                                    <input class="form-control" type="text" />
-                                  </div>
-                                  <div class="form-group">
-                                    <label for="contain">Contains the words</label>
-                                    <input class="form-control" type="text" />
-                                  </div>
-                                  <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-                                </form>
-                            </div>
-                        </div>
-                        <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-                    </div>
-                </div>
-            </div>
-    </div>
- -->
-    <div class="col-md-12">
-    <br>
-    </div>
-
-
 
     <div class="col-md-3">
     </div>
@@ -57,8 +15,13 @@
             <% end %>
       </div>
       <br>
-      <div class="col-md-3">
-            <%= link_to "My Applications", "/applications", method: :get %> 
+      <div class="col-md-3" style="padding-top: 60px;">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><%= link_to "My Applications", "/applications", method: :get %> </li>
+          <li class="list-group-item"><%= link_to "My Submissions", "/freelancer_submissions", method: :get %></li>
+          <li class="list-group-item"><%= link_to "Work Completed", "/work_completed", method: :get %></li>
+        </ul>
+              
       </div>
     </div>
   </div>

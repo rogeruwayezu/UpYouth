@@ -2,6 +2,7 @@ class SubmissionsController < ApplicationController
   def index
     @submissions = Submission.all
     @posts = Post.all
+    @post = Post.find_by(id: params[:post_id])
   end
 
   def new
@@ -22,11 +23,37 @@ class SubmissionsController < ApplicationController
   end
 
   def show
-  end
-
-  def update
+    @submission = Submission.find_by(id: params[:submission_id])
   end
 
   def edit
+    @submission = Submission.find_by(id: params[:id])
+  end
+
+  def update
+    @submission = Submission.find_by(id: params[:id])
+
+    @submission.assign_attributes(completed: true)
+    
+
+    if @submission.save
+      flash[:success] = "Your work is complete"
+      redirect_to "/work_completed"
+    else
+      render :back
+    end
+  end
+
+  def freelancer_submissions
+    @submissions = current_user.submissions
+  end
+
+  def work_completed
+    @submissions = [].to_a
+    current_user.submissions.each do |submission|
+      if submission.completed == true
+        @submissions << submission
+      end
+    end
   end
 end

@@ -4,6 +4,7 @@ class PostsController < ApplicationController
     @posts = Post.all
     @categories = Category.all
     @applications = Application.all
+    @skills = Skill.all
   end
 
   def show
@@ -12,11 +13,12 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    @categories = Category.all     
+    @categories = Category.all  
+    @skills = Skill.all   
   end
 
   def create
-    @post = Post.new({user_id: params[:user_id], title: params[:title], description: params[:description], budget: params[:budget], deadline: params[:deadline], skills: params[:skills], category_id: params[:category_id]})
+    @post = Post.new({user_id: params[:user_id], title: params[:title], description: params[:description], budget: params[:budget], deadline: params[:deadline], skill_id: params[:skill_id], category_id: params[:category_id]})
     if @post.save
       flash[:success] = "Job Post Created"
       redirect_to "/posts/#{@post.id}"
@@ -38,7 +40,7 @@ class PostsController < ApplicationController
     
     @post = Post.find_by(id: params[:id])
     @categories = Category.all
-    @post.assign_attributes(title: params[:title], description: params[:description], budget: params[:budget], deadline: params[:deadline], category_id: params[:category_id], skills: params[:skills])
+    @post.assign_attributes(title: params[:title], description: params[:description], budget: params[:budget], deadline: params[:deadline], category_id: params[:category_id], skill_id: params[:skill_id])
     if @post.save
       flash[:success] = "Job Post Updated"
       redirect_to "/posts/#{@post.id}"
@@ -52,6 +54,15 @@ class PostsController < ApplicationController
     @post.destroy
     flash[:warning] = "Job Post Deleted"
     redirect_to "/dashboards/employer"
+  end
+
+  def search
+    search_query = params[:search_input]
+    @posts = Post.where("title LIKE ? OR skills LIKE ? OR description LIKE ?", "%#{search_query}%", "%#{search_query}%", "%#{search_query}%")
+    if @posts.empty?
+      flash[:info] = "No post found in search"
+    end
+    render :index
   end
 
 end
