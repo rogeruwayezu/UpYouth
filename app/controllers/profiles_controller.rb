@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController
   def new
-    @profile = Profile.new
     @skills = Skill.all
+    @profile = Profile.new
   end
 
   def show
@@ -13,33 +13,34 @@ class ProfilesController < ApplicationController
   end
 
   def create
-    @skills = Skill.all
-    @profile = Profile.new(user_id: params[:user_id], overview: params[:overview], profile_picture: params[:profile_picture])
-
-    if @profile.save
-      
-      redirect_to @profile
-    else
-      render :new
+    @profile = Profile.new(profile_params)
+ 
+    respond_to do |format|
+      if @profile.save
+        format.html { redirect_to @profile, notice: 'profile was successfully created.' }
+        format.json { render :show, status: :created, location: @profile }
+      else
+        format.html { render :new }
+        format.json { render json: @profile.errors, status: :unprocessable_entity }
+      end
     end
 
   end
 
   def edit
-    @profile = Profile.find_by(id: params[:id])
   end
 
 
 
   def update
-    
-    @profile = Profile.find_by(id: params[:id])
-    @profile.assign_attributes(overview: params[:overview],user_id: params[:user_id],profile_picture: params[:profile_picture])
-    if @profile.save
-      flash[:success] = "Profile Updated"
-      redirect_to "/profiles/#{@profile.id}"
-    else
-      render :edit
+    respond_to do |format|
+      if @profile.update(profile_params)
+        format.html { redirect_to @profile, notice: 'profile was successfully updated.' }
+        format.json { render :show, status: :ok, location: @profile }
+      else
+        format.html { render :edit }
+        format.json { render json: @profile.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -50,7 +51,7 @@ class ProfilesController < ApplicationController
   end
 
   def profile_params
-    params.require(:profile).permit(skill_ids:[])
+    params.require(:profile).permit(:overview, :user_id, :profile_picture, skill_ids:[])
   end
 
 

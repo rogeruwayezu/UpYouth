@@ -4,40 +4,42 @@ class SkillsController < ApplicationController
   end
 
   def new
-
-  end
-
-  def create
-    @skill = Skill.new({name: params[:name]})
-    
-    if @skill.save
-      flash[:success] = "Succesfully Saved"
-      redirect_to "/skills"
-    else
-      flash[:warning] = "Ooops! Your skill isn't created"
-      redirect_to "skills/new"
-    end
+    @skill = Skill.new
   end
 
   def show
-    @skill = Skill.find_by(id: params[:skill_id])
   end
 
   def edit
-    @skill = Skill.find_by(id: params[:id])
   end
 
-  def update
-    @skill = Skill.find_by(id: params[:id])
 
-    @skill.assign_attributes(name: params[:name])
+  def create
+    @skill = Skill.new(skill_params)
     
+    respond_to do |format|
+      if @skill.save
+        format.html { redirect_to @skill, notice: 'skill was successfully created.' }
+        format.json { render :show, status: :created, location: @skill }
+      else
+        format.html { render :new }
+        format.json { render json: @skill.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
-    if @skill.save
-      flash[:success] = "Your skill is updated"
-      redirect_to "/skills"
-    else
-      render :back
+  
+
+  
+  def update
+    respond_to do |format|
+      if @skill.update(skill_params)
+        format.html { redirect_to @skill, notice: 'skill was successfully updated.' }
+        format.json { render :show, status: :ok, location: @skill }
+      else
+        format.html { render :edit }
+        format.json { render json: @skill.errors, status: :unprocessable_entity }
+      end
     end
   end
 

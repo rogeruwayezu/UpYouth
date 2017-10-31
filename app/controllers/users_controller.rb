@@ -22,10 +22,6 @@ class UsersController < ApplicationController
     @categories = Category.all
   end
 
-  def freelancer_2
-    @skills = Skill.all
-    @categories = Category.all
-  end
 
   def create
 
@@ -40,7 +36,7 @@ class UsersController < ApplicationController
     if @user.save
          session[:user_id] = @user.id
          flash[:success] = 'Successfully created account!'
-         redirect_to '/users/user_id/edit'
+         redirect_to '/dashboards/freelancer'
        else
          flash[:warning] = 'Invalid email or password!'
          redirect_to '/signup'
