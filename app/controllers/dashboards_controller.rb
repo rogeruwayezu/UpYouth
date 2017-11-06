@@ -1,8 +1,27 @@
 class DashboardsController < ApplicationController
   def freelancer
-    @posts = Post.all
+
+    if params[:skill]
+     @posts =  Skill.find_by(name: params[:skill]).posts
+
+    else
+      @posts = Post.all
+    end
+
     @profile = current_user.profile
-    render 'freelancer.html.erb' 
+    @post_skills = []
+    @user_skills =   current_user.profile.skills
+    @user_skills.each do |user_skill|
+    @posts.each do |post|
+      post.skills.each do |skill|
+        if skill.name == user_skill.name
+          @post_skills << skill.name
+
+        end
+      end
+    end
+  end
+
   end
   def employer
     @posts = Post.all

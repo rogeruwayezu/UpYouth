@@ -1,0 +1,40 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2">
+    </div>
+
+    <div class="col-md-6">
+
+      <h4>Educations </h4>      
+
+      <%= form_tag "/educations", method: :post do %>
+
+        <form>
+          
+          <input type="hidden" name="user_id"  value="<%= current_user.id %>">
+
+          <div class="form-group">
+            <label for="focusedInput">School</label>
+            <input type="text" class="form-control" name="school" id="focusedInput"  placeholder="Enter the name of school....">
+          </div>
+         
+          <div class="form-group">
+            <label for="focusedInput">Degree Acquired</label>
+            <input type="text" class="form-control" name="degree" id="focusedInput"  placeholder="Enter your degree acquired.....">
+          </div>
+          
+
+          <div class="form-group">
+            <label for="example-date-input">Finishing Year</label>
+            <input type="date" class="form-control" name="date_attended" id="example-date-input"  placeholder="Enter the year">
+          </div>
+
+          <div class="checkbox">
+            <input type="submit" name="Submit">
+          </div>
+        </form>
+
+      <% end %>
+    </div>
+  </div>
+</div>

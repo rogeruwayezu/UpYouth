@@ -1,10 +1,10 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-8">
       <%= form_for :conversation, url: :conversations, html: { class: "" } do |f| %>
           <div class="form-group">
-            <%= f.label :recipients %>
-            <%= f.select(:recipients, User.all.collect {|p| [ p.full_name, p.id ] }, {}, { multiple: true , class: "form-control" })%>
+            <%= f.label :recipients %><br>
+            <%= f.select(:recipients, User.all.collect {|p| [ p.full_name, p.id ] }, {}, { multiple: true , id: "event_artist_ids", class: "form-control" })%>
           </div>
           <div class="form-group">
             <%= f.label :subject %>
@@ -19,5 +19,10 @@
 
       <% end %>
     </div>
+    <div class="col-md-2"></div>
   </div>
 </div>
+
+<script type="text/javascript">
+    $( "#event_artist_ids" ).select2();
+</script>

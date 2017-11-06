@@ -1,7 +1,14 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = Post.all
+
+    if params[:skill]
+     @posts =  Skill.find_by(name: params[:skill]).posts
+
+    else
+      @posts = Post.all
+    end
+
     @categories = Category.all
     @applications = Application.all
     @skills = Skill.all
@@ -9,6 +16,8 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_by(id: params[:id])
+    @post_categories = @post.categories
+    @post_skills = @post.skills
   end
 
   def new
@@ -18,7 +27,9 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new({user_id: params[:user_id], title: params[:title], description: params[:description], budget: params[:budget], deadline: params[:deadline], skill_id: params[:skill_id], category_id: params[:category_id]})
+    @categories = Category.all
+    @post = Post.new(post_params)
+
     if @post.save
       flash[:success] = "Job Post Created"
       redirect_to "/posts/#{@post.id}"
@@ -30,18 +41,15 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find_by(id: params[:id])
     @categories = Category.all
   end
 
 
 
   def update
-    
-    @post = Post.find_by(id: params[:id])
+
     @categories = Category.all
-    @post.assign_attributes(title: params[:title], description: params[:description], budget: params[:budget], deadline: params[:deadline], category_id: params[:category_id], skill_id: params[:skill_id])
-    if @post.save
+    if @post.update(post_params)
       flash[:success] = "Job Post Updated"
       redirect_to "/posts/#{@post.id}"
     else
@@ -65,4 +73,13 @@ class PostsController < ApplicationController
     render :index
   end
 
+  private
+
+  def set_post
+    @post = Post.find(params[:id])
+  end
+
+  def post_params
+    params.require(:post).permit(:title, :user_id, :description, :budget, :deadline, :category_id, skill_ids:[], category_ids:[])
+  end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171027141426) do
+ActiveRecord::Schema.define(version: 20171106181456) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -164,6 +164,13 @@ ActiveRecord::Schema.define(version: 20171027141426) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "post_skills", force: :cascade do |t|
+    t.integer  "post_id"
+    t.integer  "skill_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
@@ -171,9 +178,21 @@ ActiveRecord::Schema.define(version: 20171027141426) do
     t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.integer  "category_id"
     t.date     "deadline"
+  end
+
+  create_table "profile_categories", force: :cascade do |t|
+    t.integer  "profile_id"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "profile_skills", force: :cascade do |t|
+    t.integer  "profile_id"
     t.integer  "skill_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -182,11 +201,6 @@ ActiveRecord::Schema.define(version: 20171027141426) do
     t.datetime "updated_at",      null: false
     t.integer  "user_id"
     t.string   "profile_picture"
-  end
-
-  create_table "profiles_skills", id: false, force: :cascade do |t|
-    t.integer "skill_id",   null: false
-    t.integer "profile_id", null: false
   end
 
   create_table "roles", force: :cascade do |t|

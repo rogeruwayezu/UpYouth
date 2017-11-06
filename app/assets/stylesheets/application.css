@@ -117,4 +117,30 @@ h6 {
 #myNavbar ul:hover {
     background-color: teal;
 }
+.navbar-brand,
+.btn-default,
+.btn-primary,
+.btn-success,
+.btn-info,
+.btn-warning,
+.btn-danger {
+    -webkit-box-shadow: 0px 3px 0px rgba(0,128,128, 0.8);
+    -moz-box-shadow:    0px 3px 0px rgba(0,128,128, 0.8);
+    box-shadow:         0px 3px 0px rgba(0,128,128, 0.8);
+}
+
+.btn-default:active,
+.btn-primary:active,
+.btn-success:active,
+.btn-info:active,
+.btn-warning:active,
+.btn-danger:active {
+    margin-top: 3px;
+    margin-bottom: -3px;
+     
+}
+
+/*li.navbar-brand > a{
+  color: red;
+}*/
 

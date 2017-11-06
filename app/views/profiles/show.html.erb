@@ -1,5 +1,5 @@
 
-<div class="container-fluid">
+<div class="container-fluid" style="padding-top: 30px;">
    <div class="row">
 
      <div class="col-md-3">
@@ -12,31 +12,38 @@
 
      <div class="col-md-6">      
         <div class="jumbotron">
-          <h4>Overview 
+          <h5>Overview 
           <%= link_to '<i class="glyphicon glyphicon-pencil"></i>'.html_safe,"/profiles/#{@profile.id}/edit" %>
-          </h4>
+          </h5>
           <p><%= @profile.overview %></p>
 
         </div>
       
 <br>   
         <div class="jumbotron">
-         <h4>Skills</h4>
-           <% @userskills.each do |userskill| %>
-             <li><%= userskill %></li>
+         <h5 style="font-family: 'Old Standard TT';">Skills</h5>
+           <% @skills.each do |skill| %>
+             <li><%= skill.name %></li>
            <% end %>
         </div>
      
         <br>
 
         <div class="jumbotron">
-          <h4>Portfolio
+         <h5 style="font-family: 'Old Standard TT';">Categories</h5>
+           <% @categories.each do |category| %>
+             <li><%= category.name %></li>
+           <% end %>
+        </div>
+
+        <div class="jumbotron">
+          <h5 style="font-family: 'Old Standard TT';">Portfolio
           <a href="/portfolios/new">
             <button type="button" class="btn btn-default btn-sm">
             <span class="glyphicon glyphicon-plus-sign"></span> New Project
             </button> 
           </a>
-          </h4>
+          </h5>
 
           <% if !@portfolios.blank? %>
             <% @portfolios.each do |portfolio|%>
@@ -47,21 +54,34 @@
         </div>
 <br>
         <div class="jumbotron">
-         <h4>Employment History 
+         <h5 style="font-family: 'Old Standard TT';">Employment History 
          <a href="/employment_histories/new">
           <button type="button" class="btn btn-default btn-sm">
           <span class="glyphicon glyphicon-plus-sign"></span>New Experience
           </button>
           </a>
-         </h4>
+         </h5>
         <% if !@employment_histories.blank? %>
            <% @employment_histories.each do |employment_history| %>
              <%= link_to employment_history.company, "/employment_histories/#{employment_history.id}" %></p>
            <% end %>
         <% end %>
         </div>
-
-        <p><strong>Education</strong></p>
+<br>
+        <div class="jumbotron">
+         <h5 style="font-family: 'Old Standard TT';">Educations 
+         <a href="/educations/new">
+          <button type="button" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-plus-sign"></span>New School
+          </button>
+          </a>
+         </h5>
+        <% if !@educations.blank? %>
+           <% @educations.each do |education| %>
+             <%= link_to education.school, "/educations/#{education.id}" %></p>
+           <% end %>
+        <% end %>
+        </div>
        
         
      </div>

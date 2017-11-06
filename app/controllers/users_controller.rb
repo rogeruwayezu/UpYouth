@@ -33,13 +33,17 @@ class UsersController < ApplicationController
       password_confirmation: params[:password_confirmation],
       role_id: params[:role_id])
 
-    if @user.save
-         session[:user_id] = @user.id
-         flash[:success] = 'Successfully created account!'
-         redirect_to '/dashboards/freelancer'
-       else
-         flash[:warning] = 'Invalid email or password!'
-         redirect_to '/signup'
+    if @user.save && @user.role_id ==2
+     session[:user_id] = @user.id
+     flash[:success] = 'Successfully created account!'
+     redirect_to "/profiles/new"
+    elsif @user.save && @user.role_id ==1
+      session[:user_id] = @user.id
+     flash[:success] = 'Successfully created account!'
+     redirect_to "/dashboards/employer"            
+    else
+     flash[:warning] = 'Invalid email or password!'
+     redirect_to '/signup'
     end
   end
 

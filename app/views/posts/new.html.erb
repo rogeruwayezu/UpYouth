@@ -7,59 +7,69 @@
 
       <h4> New Job Post </h4>      
 
-      <%= form_tag "/posts", method: :post do %>
+      <%= form_for(@post) do |f| %>
 
-      <script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
+      
+       <% if @post.errors.any? %>
+         <div id="error_explanation">
+           <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
-        <form>
-          
-          <input type="hidden" name="user_id"  value="<%= current_user.id %>">
+           <ul>
+           <% @post.errors.full_messages.each do |message| %>
+             <li><%= message %></li>
+           <% end %>
+           </ul>
+         </div>
+       <% end %>
 
-          <div class="form-group">
-            <label for="focusedInput">Title of the Job</label>
-            <input type="text" class="form-control" name="title" id="focusedInput"  placeholder="Enter the title">
-          </div>
-          
-           <div class="form-group">
-            <label for="focusedInput">Job Category</label>
-              <select name="category_id">
-              <option value="" disabled selected>Select your category</option>
-                <% @categories.each do |category| %>
-              <option value="<%= category.id %>"><%= category.name %></option>
-                <% end %>
-             </select>
-          </div>
+        <div class="field">
+          <%= f.hidden_field :user_id, :value => current_user.id %>
+        </div>
 
-          
-          <div class="form-group">
-            <label>Job Description</label>
-            <textarea name="description"></textarea>
-              <script>
-                  CKEDITOR.replace( 'description' );
-              </script>
-          </div>
+        <div class="field">
+          <%= f.label :title %><br>
+          <%= f.text_field :title, class: 'form-control' %>
+        </div>
+<br>
+        <div class="field" >
+          <%= f.label :Choose_the_category_of_your_job %><br>
+          <%= f.select(:category_ids, Category.all.collect {|a| [a.name, a.id]}, {}, id: "eventartist_ids", class: 'form-control', :multiple => true)  %>
+        </div>
+        <br>
 
-          <div class="form-group">
-            <label for="focusedInput">Budget</label>
-            <input type="text" class="form-control" id="focusedInput" name="budget" placeholder="Enter the budget for the job">
-          </div>
+        <div class="field">
+          <%= f.label :description %><br>
+          <%= f.text_area :description, :class => 'ckeditor' %>
+        </div>
 
-          <div class="form-group">
-            <label for="focusedInput">Required Skills</label>
-            <textarea class="form-control" name="skills" id="focusedInput" rows="3"></textarea>
-          </div>
+        <br>
 
-          <div class="form-group">
-            <label for="example-date-input">Deadline</label>
-            <input type="date" class="form-control" name="deadline" id="example-date-input"  placeholder="Enter the deadline">
-          </div>
-         
-          <div class="checkbox">
-            <input type="submit" name="Submit">
-          </div>
-        </form>
+        <div class="field" >
+          <%= f.label :Choose_your_skills %><br>
+          <%= f.select(:skill_ids, Skill.all.collect {|a| [a.name, a.id]}, {}, id: "event_artist_ids", class: 'form-control', :multiple => true)  %>
+        </div>
+<br>
+        <div class="field">
+          <%= f.label :budget %><br>
+          <%= f.text_field :budget, class: 'form-control' %>
+        </div>
+<br>
+        <div class="field">
+          <%= f.label :deadline %> <%= f.date_select(:deadline, :order => [:month, :day, :year]) %>
+        </div>
 
+        <br>
+        <div class="actions">
+          <%= f.submit %>
+        </div>
       <% end %>
+
+        
     </div>
   </div>
 </div>
+<script type="text/javascript">
+    $( "#event_artist_ids" ).select2();
+    $( "#eventartist_ids" ).select2();
+</script>
+<script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>

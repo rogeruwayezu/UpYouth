@@ -2,9 +2,9 @@
   <div class="row">
 
     <div class="w3-container">
-      <div class="w3-card-4" style="width:80%;float: center;">
+      <div class="w3-card-4" style="width:80%;float: center;background-color: white;">
         <header class="w3-container " style="background-color: teal;">
-          <h2 style="text-align: left;color: white;">Posts <button type="submit" class="btn btn-default" style="float: right;"><%= link_to "Post A New Job", "/posts/new" %></button></h2>
+          <h4 style="text-align: left;color: white;font-family: 'Old Standard TT'">Posts <button type="submit" class="btn btn-default" style="float: right;height: 30px;margin-bottom:5px;"><%= link_to "Post A New Job", "/posts/new" %></button></h4>
 
         </header>
 
@@ -22,9 +22,9 @@
   </div>
 <br>
     <div class="w3-container">
-      <div class="w3-card-4" style="width:80%;">
+      <div class="w3-card-4" style="width:80%;background-color: white;">
         <header class="w3-container" style="background-color: teal;">
-          <h2 style="text-align: left;color: white;">Applications</h2>
+          <h4 style="text-align: left;color: white;font-family: 'Old Standard TT'">Applications</h4>
 
         </header>
 
@@ -39,23 +39,25 @@
     </div>
 <br>
     <div class="w3-container">
-      <div class="w3-card-4" style="width:80%;">
+      <div class="w3-card-4" style="width:80%;background-color: white;">
         <header class="w3-container" style="background-color: teal;">
-          <h2 style="text-align: left; color: white;">Submissions</h2>
+          <h4 style="text-align: left; color: white;font-family: 'Old Standard TT'">Submissions</h4>
 
         </header>
 
         <div class="w3-container">
           <% @posts.each do |post| %>
-            <h5 style="text-align:left;""><%= post.title %></h5>
-              <strong>Submission Title</strong> <ol>
-              <% post.submissions.each do |submission| %>
-                
-                  <li>
-                    <h7><%= link_to submission.title, "/submissions/#{submission.id}?submission_id=#{submission.id}" %></h7>
+            <h6 style="text-align:left; font-family: 'Old Standard TT'""><strong>Post Title</strong>: <%= post.title %></h6>
+              <% if !post.submissions.blank? %>
+                <p><strong>Submission Title: </strong>
+                <% post.submissions.each do |submission| %>
+                  <li><%= link_to submission.title, "/submissions/#{submission.id}?submission_id=#{submission.id}" %>
                   </li>
-              <% end %>
-              </ol>
+                <% end %></p>
+
+              <% else %>
+                <p><strong>Submission Title: </strong> No submission....</p>
+              <% end %><br>
           <% end %>
         </div> 
       </div>

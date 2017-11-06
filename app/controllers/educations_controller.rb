@@ -12,7 +12,7 @@ class EducationsController < ApplicationController
     @education = Education.new({user_id: params[:user_id], school: params[:school], date_attended: params[:date_attended], degree: params[:degree]})
     if @education.save
       flash[:success] = "Job education Created"
-      redirect_to "/p/#{@education.id}"
+      redirect_to "/educations/#{@education.id}"
     else      
       flash[:warning] = "Job education NOT Created"
       render :new

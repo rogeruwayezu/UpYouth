@@ -7,16 +7,10 @@ class ProfilesController < ApplicationController
   def show
     @profile = current_user.profile
     @portfolios = current_user.portfolios
+    @educations = current_user.educations
     @employment_histories = current_user.employment_histories
-    @skills = Skill.all
-    @userskills = []
-    @skills.each do |skill|
-      skill.profiles.each do |profile|
-        if profile.user_id == current_user.id
-          @userskills << skill.name
-        end
-      end
-    end
+    @skills = current_user.profile.skills
+    @categories = current_user.profile.categories
   
   end
 
@@ -36,11 +30,13 @@ class ProfilesController < ApplicationController
   end
 
   def edit
+    @profile = Profile.find_by(id:params[:id])
   end
 
 
 
   def update
+    @profile = Profile.find_by(id:params[:id])
     respond_to do |format|
       if @profile.update(profile_params)
         format.html { redirect_to @profile, notice: 'profile was successfully updated.' }
@@ -59,7 +55,7 @@ class ProfilesController < ApplicationController
   end
 
   def profile_params
-    params.require(:profile).permit(:overview, :user_id, :profile_picture, skill_ids:[])
+    params.require(:profile).permit(:overview, :user_id, :profile_picture, skill_ids:[], category_ids:[])
   end
 
 
