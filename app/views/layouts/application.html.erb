@@ -24,13 +24,6 @@
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="css/agency.min.css" rel="stylesheet">
 
-
-    <style type="text/css">
-      .navbar #nav > .active > a {
-    color: red;
-     }
-    </style>
-
   </head>
 
 <body>
@@ -42,12 +35,12 @@
          <span class="icon-bar"></span>
          <span class="icon-bar"></span>                        
        </button>
-       <a class="navbar-brand" id="upyouth" href="/">UpYouth</a>
+       <a class="navbar-brand" id="upyouth" href="/"><strong>UpYouth</strong></a>
      </div>
      
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul  class="nav navbar-nav navbar-center">
-       <div class="searchbar-center">
+       <div class="searchbar-center" style="margin-top: -8px;">
          <%= form_tag "/posts/search", class: "navbar-form navbar-left", method: :post do %>
          <form class="w3-bar-item " role="search">
          <div class="input-group" id="adv-search">
@@ -66,16 +59,21 @@
          
           <ul class="nav navbar-nav navbar-right" id="nav">
              <% if current_user.role_id== 1 %>
-              <li id="home"><a class="navbar-brand"  href="/dashboards/employer">Home</a>
+              <li class="<%= 'active'if params[:controller] == 'dashboards'%>">
+              <a class="navbar-brand"  href="/dashboards/employer"><strong> Home </strong></a></li>
+
              <% else %>
-             <li id="home"><a class="navbar-brand"  href="/dashboards/freelancer">Home</a>
+             
+             <li class="<%= 'active'if params[:controller] == 'dashboards'%>"> <a class="navbar-brand"  href="/dashboards/freelancer"><strong> Home </strong></a></li>
              <% end %>
-              <li id="message"><a class="navbar-brand"  href="/mailbox/inbox">
-                <span class="glyphicon glyphicon-envelope"></span> <%=unread_messages_count%>
+              <li class="<%= 'active'if params[:controller] == 'mailbox'%>">
+              <a class="navbar-brand"  href="/mailbox/inbox">
+                <span class="glyphicon glyphicon-envelope"></span> <strong><%=unread_messages_count%></strong>
               </a></li>
 
-              <li id="notification"><a class="navbar-brand"  href="/activities">
-                 <span class="glyphicon glyphicon-bell"></span><%=PublicActivity::Activity.where(recipient_id: current_user.id, recipient_type: "User").count%>
+              <li class="<%= 'active'if params[:controller] == 'activities'%>">
+              <a class="navbar-brand"  href="/activities">
+                 <span class="glyphicon glyphicon-bell"></span><strong><%=PublicActivity::Activity.where(recipient_id: current_user.id, recipient_type: "User").count%></strong>
                 </a></li>
 
       
@@ -83,7 +81,7 @@
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle profile-image" data-toggle="dropdown">
                    <% if !current_user.profile.blank? %>
-                    <img src="<%= current_user.profile.profile_picture_url %>" class="img-circle special-img"><% end %><%= current_user.full_name %><b class="caret"></b></a>
+                    <img src="<%= current_user.profile.profile_picture_url %>" class="img-circle special-img"><% end %><strong><%= current_user.full_name %></strong><b class="caret"></b></a>
                             <ul class="dropdown-menu">
                             <% if current_user.role_id ==2 %>
                                 <li><%= link_to "Profile", "/profiles/#{current_user.profile.id}" %></li>
@@ -96,8 +94,8 @@
         <% else %>
         
           <ul class="nav navbar-nav navbar-right">
-            <li><a class="navbar-brand" href="/signup">Join Us</a>
-            <li><a href="/login"><span class="glyphicon glyphicon-user"></span> Login</a></li> 
+            <li><a class="navbar-brand" href="/signup"><strong>Join Us</strong></a>
+            <li style="margin-top: -3px;"><a class="navbar-brand" href="/login"><span class="glyphicon glyphicon-user"></span> <strong >Login</strong></a></li> 
           </ul>
       
       <% end %>
