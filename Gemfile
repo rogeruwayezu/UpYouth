@@ -14,6 +14,7 @@ gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+gem 'seed_dump'
 # gem 'carrierwave', '~> 0.9'
 
 # Use Uglifier as compressor for JavaScript assets
