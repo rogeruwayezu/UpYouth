@@ -1,37 +1,25 @@
 <body class="signup">
-  <div class="container-fluid" style="padding-left: 400px;">
-    <div class="row">
-        <div class="col-md-6" id="signup_employer">
-            <%= form_tag '/users', method: :post do  %>
-            <legend style="background-color: white;"> Sign up as an Employer</legend>
-            <form action="#" method="post" class="form" role="form">
-            <div class="row">
-                <div class="col-xs-6 col-md-6">
-                    <input class="form-control" name="first_name" placeholder="First Name" type="text"
-                        required autofocus />
-                </div>
-                <div class="col-xs-6 col-md-6">
-                    <input class="form-control" name="last_name" placeholder="Last Name" type="text" required />
-                </div>
-            </div>
-            <div>
-            <input type="hidden" name="role_id" value="<%= @roles.second.id%>">     
-            </div>
+  <div>
+    <div class="container" >
+       <div class="col-md-3"></div>
+       <div class="col-md-6" >
+           <div id="logbox">
+               <%= form_tag '/users', method: :post do  %>
+                   <h2 style="font-family: 'Old Standard TT';text-align: center;">Create a Freelancer Account</h2>
+                   <input name="first_name" type="text" placeholder="First Name" class="input pass"/>
+                   <input name="last_name" type="text" placeholder="Last Name" class="input pass"/>
+                   <input type="hidden" name="role_id" value="<%= @roles.second.id%>"/>
+                   <input name="email" type="email" placeholder="Email address" class="input pass"/>
+                   <input name="password" type="password" placeholder="Choose a password" required="required" class="input pass"/>
+                   <input name="password_confirmation" type="password" placeholder="Confirm password" required="required" class="input pass"/>
+                   <input type="submit" value="Sign me up!" class="inputButton"/>
+               <% end %>
+           </div>
+       </div>
+       <!--col-md-6-->
 
-            <input class="form-control" name="email" placeholder="Your Email" type="email" />
-            <input class="form-control" name="password" placeholder="New Password" type="password" />
-            <input class="form-control" name="password_confirmation" placeholder="Re-enter Password" type="password" />
-           
-            <br />
-            
-            <br />
-            <button class="btn btn-lg btn-primary btn-block" type="submit">
-                Sign up</button>
-            </form>
-            <% end %>
-          
-        </div>
+
     </div>
-  </div>
+    </div>
 </body>
 

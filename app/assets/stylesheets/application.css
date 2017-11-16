@@ -18,7 +18,7 @@
 
 .navbar{
     position: fixed;
-    background-color: teal;
+    background-color: #00b3b3;
     top: 0;
     width: 100%;
     z-index: 100;   
@@ -112,11 +112,15 @@ h6 {
   padding-left: 230px;
 }
 #myNavbar a:hover {
-    background-color: teal;
+    color: black;
+    background-color: #00b3b3;
 }
-#myNavbar ul:hover {
-    background-color: teal;
+
+
+.navbar #nav > .active > a {
+    color: black;
 }
+
 .navbar-brand,
 .btn-default,
 .btn-primary,
@@ -124,9 +128,9 @@ h6 {
 .btn-info,
 .btn-warning,
 .btn-danger {
-    -webkit-box-shadow: 0px 3px 0px rgba(0,128,128, 0.8);
-    -moz-box-shadow:    0px 3px 0px rgba(0,128,128, 0.8);
-    box-shadow:         0px 3px 0px rgba(0,128,128, 0.8);
+    -webkit-box-shadow: 0px 3px 0px rgba(0,179,179, 0.8);
+    -moz-box-shadow:    0px 3px 0px rgba(0,179,179, 0.8);
+    box-shadow:         0px 3px 0px rgba(0,179,179, 0.8);
 }
 
 .btn-default:active,
