@@ -1,10 +1,10 @@
-<div class="container-fluid">
+<div class="container-fluid" style="padding-top: 30px;">
   <div class="row">
-    <div class="col-md-2"></div>
-    <div class="col-md-6">
+    <div class="col-md-1"></div>
+    <div class="col-md-10 jumbotron" style="padding-top: 15px;">
       <table>
-        <tr>
-          <th>
+        <tr style="font-family: 'Old Standard TT';border-bottom: 2px solid #008080;">
+          <th >
             <p> <strong>Freelancer</strong> </p>
           </th>
           <th>
@@ -15,6 +15,9 @@
           </th>
           <th>
             <p> <strong>Work File</strong> </p>
+          </th>
+          <th>
+            <p> <strong>Work Status</strong> </p>
           </th>
         </tr>
         <tr>
@@ -29,6 +32,13 @@
           </td>
           <td>
           <%= link_to "Download Work", @submission.file_url %>
+          </td>
+          <td>
+           <% if @submission.completed == true %>
+           <p><strong>Completed</strong></p>
+           <% else %>
+            <%= button_to "Complete", "/submissions/#{@submission.id}", class: "btn btn-success", method: :patch %><br>
+           <% end %>
           </td>
           </tr>
       </table>
