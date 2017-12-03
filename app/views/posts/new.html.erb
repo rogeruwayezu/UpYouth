@@ -5,11 +5,9 @@
 
     <div class="col-md-6">
 
-      <h4> New Job Post </h4>      
+      <h4  style="font-family: 'Old Standard TT';"> New Job Post </h4>      
 
       <%= form_for(@post) do |f| %>
-
-      
        <% if @post.errors.any? %>
          <div id="error_explanation">
            <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -72,4 +70,4 @@
     $( "#event_artist_ids" ).select2();
     $( "#eventartist_ids" ).select2();
 </script>
-<script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
+

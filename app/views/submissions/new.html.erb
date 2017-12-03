@@ -1,11 +1,11 @@
-<div class="container-fluid">
+<div class="container-fluid" style="padding-top: 30px;">
   <div class="row">
     <div class="col-md-2">
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-8 jumbotron" style="padding-top: 25px;">
 
-      <h4>Submit </h4>      
+      <h4 style="font-family: 'Old Standard TT';"><strong>Submit</strong></h4>      
 
       <%= form_tag "/submissions", multipart: true, method: :post do %>
 
@@ -33,8 +33,9 @@
           </div>
 
           <div class="checkbox">
-            <input type="submit" name="Submit">
+            <input type="submit" class="btn btn-success" style="background-color:#00b3b3"    name="Submit">
           </div>
+        
         </form>
 
       <% end %>

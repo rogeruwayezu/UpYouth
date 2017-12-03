@@ -38,7 +38,7 @@ class SubmissionsController < ApplicationController
 
     if @submission.save
       flash[:success] = "Your work is complete"
-      redirect_to "/work_completed"
+      redirect_to "/dashboards/employer"
     else
       render :back
     end

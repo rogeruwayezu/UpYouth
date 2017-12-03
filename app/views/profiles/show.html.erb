@@ -11,7 +11,7 @@
      </div>
 
      <div class="col-md-6">      
-        <div class="jumbotron">
+        <div class="jumbotron" style="padding-top: 15px;">
           <h5>Overview 
           <%= link_to '<i class="glyphicon glyphicon-pencil"></i>'.html_safe,"/profiles/#{@profile.id}/edit" %>
           </h5>
@@ -20,8 +20,9 @@
         </div>
       
 <br>   
-        <div class="jumbotron">
-         <h5 style="font-family: 'Old Standard TT';">Skills</h5>
+        <div class="jumbotron" style="padding-top: 15px;">
+         <h5 style="font-family: 'Old Standard TT';">Skills
+         <%= link_to '<i class="glyphicon glyphicon-pencil"></i>'.html_safe,"/profiles/#{@profile.id}/edit" %></h5>
            <% @skills.each do |skill| %>
              <li><%= skill.name %></li>
            <% end %>
@@ -29,14 +30,14 @@
      
         <br>
 
-        <div class="jumbotron">
+        <div class="jumbotron" style="padding-top: 15px;">
          <h5 style="font-family: 'Old Standard TT';">Categories</h5>
            <% @categories.each do |category| %>
              <li><%= category.name %></li>
            <% end %>
         </div>
 
-        <div class="jumbotron">
+        <div class="jumbotron" style="padding-top: 15px;">
           <h5 style="font-family: 'Old Standard TT';">Portfolio
           <a href="/portfolios/new">
             <button type="button" class="btn btn-default btn-sm">
@@ -53,7 +54,7 @@
 
         </div>
 <br>
-        <div class="jumbotron">
+        <div class="jumbotron" style="padding-top: 15px;">
          <h5 style="font-family: 'Old Standard TT';">Employment History 
          <a href="/employment_histories/new">
           <button type="button" class="btn btn-default btn-sm">
@@ -68,7 +69,7 @@
         <% end %>
         </div>
 <br>
-        <div class="jumbotron">
+        <div class="jumbotron" style="padding-top: 15px;">
          <h5 style="font-family: 'Old Standard TT';">Educations 
          <a href="/educations/new">
           <button type="button" class="btn btn-default btn-sm">
