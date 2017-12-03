@@ -1,4 +1,6 @@
 class ProfilesController < ApplicationController
+before_action :authenticate_freelancer!, only: [:new, :create, :edit, :update, :destroy] 
+
   def new
     @skills = Skill.all
     @profile = Profile.new

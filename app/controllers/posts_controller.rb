@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+before_action :authenticate_employer!, only: [:new, :create, :edit, :update, :destroy] 
 
   def index
 
@@ -41,6 +42,7 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @post = Post.find(params[:id])
     @categories = Category.all
     @post = Post.find_by(id: params[:id])
   end
@@ -67,7 +69,7 @@ class PostsController < ApplicationController
 
   def search
     search_query = params[:search_input]
-    @posts = Post.where("title LIKE ?  OR description LIKE ?", "%#{search_query}%", "%#{search_query}%")
+    @posts = Post.where("title ILIKE ?  OR description ILIKE ?", "%#{search_query}%", "%#{search_query}%")
     if @posts.empty?
       flash[:info] = "No result found....."
     end

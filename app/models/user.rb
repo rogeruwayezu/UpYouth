@@ -13,6 +13,9 @@ class User < ApplicationRecord
    has_many :submissions
 
 
+   validates :email, presence: true, uniqueness: {message: "already exists. Use a different email"}
+
+
 
  
    acts_as_messageable
