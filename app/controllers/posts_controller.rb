@@ -42,6 +42,7 @@ class PostsController < ApplicationController
 
   def edit
     @categories = Category.all
+    @post = Post.find_by(id: params[:id])
   end
 
 

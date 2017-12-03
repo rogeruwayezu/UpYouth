@@ -18,13 +18,13 @@
         <p><strong>Job Budget</strong>: $<%= @post.budget %></p><br>
         <p><strong>Deadline</strong>: <%= @post.deadline %></p><br>
 
-      <% if current_user %>
+      <% if current_user&&current_user.role_id==2 %>
         <%= form_tag "/applications/new?post_id=#{@post.id} ", method: :get do %>
           <input type="hidden" name="post_id"  value="<%= @post.id %>">
         <button class="btn btn-success" style="background-color:#008080">Apply Now</button>
         <% end %>
-      <% else %>
-        <h4> You need to create an account in order to apply for this job</h4>
+      <% elsif !current_user %>
+        <h6> You need to create an account in order to apply for this job</h6>
       <% end %>
 
     </div>
