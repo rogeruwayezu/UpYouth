@@ -42,8 +42,8 @@ class UsersController < ApplicationController
      flash[:success] = 'Successfully created account!'
      redirect_to "/dashboards/employer"            
     else
-     flash[:warning] = 'Invalid email or password!'
-     redirect_to '/signup'
+     flash[:warning] = @user.errors.full_messages.to_sentence
+     redirect_to :back
     end
   end
 
